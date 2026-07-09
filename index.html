@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Promos da Lidi — Grupo VIP no WhatsApp</title>
+  <meta name="description" content="Entre no grupo VIP Promos da Lidi e receba promoções de beleza, perfumaria e cosméticos no WhatsApp." />
+  <meta name="theme-color" content="#5b0988" />
+  <style>
+    :root {
+      --purple-900: #42006f;
+      --purple-800: #570086;
+      --purple-700: #6d0c9c;
+      --purple-500: #8a19b8;
+      --pink: #f72596;
+      --pink-2: #ff42b3;
+      --green: #09a83a;
+      --green-2: #0bc247;
+      --star: #ffc727;
+      --ink: #4b0878;
+      --muted: #6a3f86;
+      --line: #ead7f0;
+      --paper: #ffffff;
+      --soft: #f9ecfb;
+      --shadow: 0 22px 60px rgba(70, 0, 105, .18);
+    }
+
+    * { box-sizing: border-box; }
+    html { min-height: 100%; }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background:
+        radial-gradient(circle at 14% 16%, rgba(247,37,150,.18), transparent 28rem),
+        radial-gradient(circle at 92% 18%, rgba(125,23,194,.18), transparent 30rem),
+        linear-gradient(180deg, #fff6fb 0%, #f7edf9 100%);
+      color: var(--ink);
+      font-family: Inter, Montserrat, Poppins, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .landing {
+      width: min(100%, 520px);
+      overflow: hidden;
+      border-radius: 34px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      text-align: center;
+      border: 1px solid rgba(92, 0, 135, .08);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 332px;
+      padding: 34px 24px 118px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 86% 14%, rgba(255,255,255,.12), transparent 7rem),
+        radial-gradient(circle at 18% 84%, rgba(247,37,150,.32), transparent 9rem),
+        linear-gradient(135deg, #430072 0%, #6a0797 43%, #c012a4 100%);
+      isolation: isolate;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: -10%; right: -10%; bottom: -45px;
+      height: 106px;
+      border-radius: 0 0 50% 50%;
+      background: #fff;
+      z-index: 0;
+    }
+
+    .shape {
+      position: absolute;
+      inset: auto;
+      pointer-events: none;
+      opacity: .28;
+      z-index: -1;
+    }
+    .shape.one {
+      width: 210px; height: 210px;
+      right: -78px; top: 42px;
+      border-radius: 42% 58% 55% 45%;
+      background: #310052;
+      transform: rotate(18deg);
+    }
+    .shape.two {
+      width: 260px; height: 150px;
+      left: -100px; bottom: 38px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      transform: rotate(-22deg);
+    }
+
+    .dots {
+      position: absolute;
+      left: 26px; top: 24px;
+      display: grid;
+      grid-template-columns: repeat(4, 5px);
+      gap: 9px;
+      opacity: .9;
+    }
+    .dots span {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.86);
+    }
+
+    .heart-neon {
+      position: absolute;
+      right: 31px; top: 28px;
+      width: 50px; height: 44px;
+      opacity: .9;
+      filter: drop-shadow(0 0 8px rgba(255,66,179,.9));
+    }
+
+    .brand-title {
+      position: relative;
+      z-index: 2;
+      margin: 38px 0 0;
+      font-size: clamp(60px, 15vw, 86px);
+      line-height: .78;
+      font-weight: 1000;
+      letter-spacing: -.055em;
+      text-transform: uppercase;
+      text-shadow: 0 6px 18px rgba(0,0,0,.13);
+    }
+
+    .brand-script {
+      position: relative;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 8px;
+      color: #fff;
+      font-family: "Brush Script MT", "Segoe Script", "Lucida Handwriting", cursive;
+      font-size: clamp(42px, 12vw, 67px);
+      line-height: .82;
+      font-weight: 500;
+      text-shadow: 0 5px 14px rgba(0,0,0,.14);
+    }
+    .brand-script svg { width: 38px; height: 35px; color: var(--pink-2); filter: drop-shadow(0 0 6px rgba(255,66,179,.8)); }
+
+    .bubble {
+      position: absolute;
+      z-index: 3;
+      left: 50px; bottom: 64px;
+      width: 58px; height: 52px;
+      border-radius: 19px 19px 19px 4px;
+      background: var(--pink);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 12px 22px rgba(105,0,129,.2);
+      transform: rotate(-8deg);
+    }
+    .bubble svg { width: 27px; height: 27px; color: #fff; }
+
+    .profile {
+      position: absolute;
+      z-index: 4;
+      left: 50%; bottom: -74px;
+      transform: translateX(-50%);
+      width: 182px; height: 182px;
+      border-radius: 50%;
+      padding: 7px;
+      background: #fff;
+      box-shadow: 0 14px 30px rgba(63, 0, 100, .22);
+    }
+    .profile img {
+      display: block;
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #f5d9ef;
+    }
+
+    .content { padding: 104px 30px 32px; }
+
+    .headline h1 {
+      margin: 0;
+      color: var(--purple-800);
+      font-size: clamp(37px, 9vw, 50px);
+      line-height: .92;
+      font-weight: 1000;
+      letter-spacing: -.035em;
+      text-transform: uppercase;
+    }
+    .headline h2 {
+      margin: 5px 0 14px;
+      color: var(--pink);
+      font-size: clamp(29px, 7.2vw, 40px);
+      line-height: .96;
+      font-weight: 1000;
+      letter-spacing: -.035em;
+      text-transform: uppercase;
+    }
+    .accent-marks {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .mark {
+      width: 20px; height: 18px;
+      border-top: 4px solid var(--pink);
+      border-bottom: 4px solid var(--pink);
+      transform: skewX(-18deg) rotate(-12deg);
+      opacity: .65;
+    }
+    .mark.right { transform: skewX(18deg) rotate(12deg); }
+
+    .copy {
+      max-width: 390px;
+      margin: 0 auto 22px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.35;
+      font-weight: 650;
+    }
+    .copy strong { color: var(--purple-900); font-weight: 950; }
+
+    .cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 13px;
+      width: 100%;
+      min-height: 64px;
+      margin: 22px auto 17px;
+      padding: 14px 18px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--green-2), var(--green));
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: clamp(16px, 4.4vw, 20px);
+      font-weight: 1000;
+      letter-spacing: -.01em;
+      box-shadow: 0 10px 0 rgba(5, 119, 41, .16), 0 17px 26px rgba(0, 115, 42, .18);
+      transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
+    }
+    .cta:hover { transform: translateY(-2px); filter: saturate(1.06); box-shadow: 0 12px 0 rgba(5, 119, 41, .14), 0 24px 32px rgba(0, 115, 42, .2); }
+    .cta:focus-visible { outline: 4px solid rgba(9,168,58,.2); outline-offset: 4px; }
+    .wa-icon {
+      width: 35px; height: 35px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: rgba(255,255,255,.16);
+      display: grid;
+      place-items: center;
+    }
+    .wa-icon svg { width: 24px; height: 24px; }
+
+    .proof {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 auto 24px;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+    .stars {
+      color: var(--star);
+      letter-spacing: 1px;
+      font-size: 19px;
+      text-shadow: 0 1px 0 rgba(120,60,0,.12);
+    }
+    .proof strong { color: var(--pink); font-size: 20px; }
+
+    .divider {
+      position: relative;
+      height: 26px;
+      margin: 0 0 21px;
+    }
+    .divider::before {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; top: 50%;
+      height: 1px;
+      background: var(--line);
+    }
+    .divider span {
+      position: relative;
+      display: inline-grid;
+      place-items: center;
+      width: 46px; height: 26px;
+      background: #fff;
+      color: var(--pink);
+      font-size: 22px;
+    }
+
+    .benefits h3 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      color: var(--purple-800);
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 1000;
+      letter-spacing: -.015em;
+      text-transform: uppercase;
+    }
+    .benefits h3 span { color: var(--pink); font-size: 17px; }
+
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      border-radius: 22px;
+      background: linear-gradient(180deg, #fff, #fff7fd);
+      border: 1px solid rgba(234, 215, 240, .9);
+      overflow: hidden;
+    }
+    .benefit {
+      min-width: 0;
+      padding: 13px 6px 14px;
+      border-right: 1px solid var(--line);
+      color: var(--purple-800);
+      font-size: 12px;
+      line-height: 1.12;
+      font-weight: 900;
+    }
+    .benefit:last-child { border-right: 0; }
+    .benefit-icon {
+      width: 46px; height: 46px;
+      margin: 0 auto 8px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--soft);
+      color: var(--purple-700);
+      box-shadow: inset 0 0 0 1px rgba(95, 0, 143, .08);
+    }
+    .benefit:nth-child(even) .benefit-icon { color: var(--pink); }
+    .benefit-icon svg { width: 27px; height: 27px; }
+
+    .note {
+      margin: 18px auto 0;
+      color: #8b68a0;
+      font-size: 12px;
+      line-height: 1.3;
+    }
+
+    @media (max-height: 760px), (max-width: 480px) {
+      body { padding: 0; background: #fff; place-items: start center; }
+      .landing { width: 100%; max-width: 520px; min-height: 100vh; border-radius: 0; box-shadow: none; border: 0; }
+      .hero { min-height: 248px; padding: 24px 20px 76px; }
+      .hero::after { bottom: -34px; height: 78px; }
+      .dots { left: 20px; top: 18px; gap: 7px; }
+      .heart-neon { right: 22px; top: 20px; width: 40px; height: 36px; }
+      .brand-title { margin-top: 28px; font-size: clamp(48px, 13vw, 64px); }
+      .brand-script { margin-top: 5px; font-size: clamp(34px, 10vw, 49px); }
+      .brand-script svg { width: 30px; height: 28px; }
+      .bubble { left: 34px; bottom: 47px; width: 48px; height: 43px; border-radius: 16px 16px 16px 4px; }
+      .bubble svg { width: 23px; height: 23px; }
+      .profile { width: 128px; height: 128px; bottom: -50px; padding: 5px; }
+      .content { padding: 65px 22px 26px; }
+      .headline h1 { font-size: clamp(30px, 8vw, 38px); line-height: .9; }
+      .headline h2 { margin: 3px 0 9px; font-size: clamp(25px, 6.8vw, 32px); }
+      .mark { width: 16px; height: 15px; border-top-width: 3px; border-bottom-width: 3px; }
+      .copy { max-width: 360px; margin-bottom: 12px; font-size: 15.5px; line-height: 1.28; }
+      .cta { min-height: 56px; margin: 12px auto 12px; padding: 12px 16px; font-size: clamp(15px, 4.2vw, 18px); }
+      .wa-icon { width: 31px; height: 31px; }
+      .wa-icon svg { width: 22px; height: 22px; }
+      .proof { margin-bottom: 17px; font-size: 13.5px; }
+      .proof strong { font-size: 17px; }
+      .stars { font-size: 17px; }
+      .divider { height: 21px; margin-bottom: 16px; }
+      .benefits h3 { margin-bottom: 14px; font-size: 19px; }
+      .benefit-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .benefit { font-size: 12px; padding: 14px 8px; border-bottom: 1px solid var(--line); }
+      .benefit:nth-child(2n) { border-right: 0; }
+      .benefit:last-child { grid-column: 1 / -1; border-bottom: 0; }
+      .benefit-icon { width: 48px; height: 48px; }
+      .benefit-icon svg { width: 27px; height: 27px; }
+    }
+
+    @media (max-width: 360px) {
+      .benefit-grid { grid-template-columns: repeat(2, 1fr); }
+      .benefit { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 12px; }
+      .benefit:nth-child(2n) { border-right: 0; }
+      .benefit:nth-last-child(-n+1) { grid-column: 1 / -1; border-bottom: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="landing" aria-label="Landing page Promos da Lidi">
+    <section class="hero" aria-label="Promos da Lidi">
+      <div class="shape one"></div>
+      <div class="shape two"></div>
+      <div class="dots" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <svg class="heart-neon" viewBox="0 0 60 52" aria-hidden="true"><path d="M30 46S6 31 6 16C6 7 16 3 23 10c3 3 7 8 7 8s4-5 7-8c7-7 17-3 17 6 0 15-24 30-24 30Z" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" color="#ff42b3"/></svg>
+      <p class="brand-title">Promos</p>
+      <p class="brand-script">da Lidi <svg viewBox="0 0 60 52" aria-hidden="true"><path d="M30 46S6 31 6 16C6 7 16 3 23 10c3 3 7 8 7 8s4-5 7-8c7-7 17-3 17 6 0 15-24 30-24 30Z" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
+      <div class="bubble" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 4h14a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3h-7l-5 4v-4H5a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3Zm7 10s5-3.12 5-6.25A2.7 2.7 0 0 0 12 6.3a2.7 2.7 0 0 0-5 1.45C7 10.88 12 14 12 14Z"/></svg></div>
+      <figure class="profile"><img src="lidi-profile.png" alt="Lidi segurando um produto de beleza" /></figure>
+    </section>
+
+    <section class="content">
+      <div class="headline">
+        <div class="accent-marks"><span class="mark"></span><h1>Nunca mais</h1><span class="mark right"></span></div>
+        <h2>Perca uma promoção!</h2>
+      </div>
+
+      <p class="copy">Receba todos os dias promoções da <strong>Natura, Boticário</strong> e outras marcas <strong>antes</strong> da maioria das pessoas.</p>
+
+      <a class="cta" id="whatsappCta" href="https://chat.whatsapp.com/SEU_CODIGO_DO_GRUPO" rel="noopener noreferrer" aria-label="Quero entrar no grupo VIP Promos da Lidi no WhatsApp">
+        <span class="wa-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2.01A9.87 9.87 0 0 0 2.1 11.9c0 1.74.46 3.42 1.34 4.91L2 22l5.32-1.39a9.9 9.9 0 0 0 4.72 1.2h.01a9.9 9.9 0 0 0 9.9-9.89 9.88 9.88 0 0 0-9.91-9.91Zm0 18.13h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.15.83.84-3.07-.2-.32a8.18 8.18 0 1 1 7 3.89Zm4.49-6.13c-.25-.12-1.45-.72-1.67-.8-.22-.08-.39-.12-.55.12-.16.25-.63.8-.77.96-.14.16-.28.18-.53.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.7-.14-.25-.02-.38.11-.5.11-.11.25-.28.37-.42.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.55-1.33-.75-1.82-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.43.06-.65.31-.22.25-.86.84-.86 2.05 0 1.21.88 2.38 1 2.54.12.16 1.73 2.64 4.19 3.7.59.25 1.04.4 1.4.51.59.19 1.12.16 1.54.1.47-.07 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.47-.28Z"/></svg></span>
+        Quero entrar no grupo VIP
+      </a>
+
+      <div class="proof" aria-label="Prova social">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <span>Mais de <strong>15.000</strong> cheirosas já recebem as ofertas!</span>
+      </div>
+
+      <div class="divider" aria-hidden="true"><span>♥</span></div>
+
+      <section class="benefits" aria-label="O que você recebe">
+        <h3><span>♥</span> O que você recebe <span>♥</span></h3>
+        <div class="benefit-grid">
+          <div class="benefit"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 12v8H4v-8M2 7h20v5H2z"/><path d="M12 7v13M12 7H7.5A2.5 2.5 0 1 1 10 4.5C10 6 12 7 12 7Zm0 0h4.5A2.5 2.5 0 1 0 14 4.5C14 6 12 7 12 7Z"/></svg></div>Promoções exclusivas</div>
+          <div class="benefit"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></div>Alertas de frete grátis</div>
+          <div class="benefit"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 8a2 2 0 0 0 2-2h12a2 2 0 0 0 2 2v8a2 2 0 0 0-2 2H6a2 2 0 0 0-2-2V8Z"/><path d="m9 15 6-6M9 9h.01M15 15h.01"/></svg></div>Cupons atualizados</div>
+          <div class="benefit"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 2.5c.2 3.2-1.8 4.7-3.3 6.2-1.5 1.5-2.8 3-2.8 5.6A4.7 4.7 0 0 0 12 19c2.6 0 4.8-2.1 4.8-4.8 0-1.9-.9-3.5-2.2-4.8.1 1.8-.8 2.8-1.8 3.7.2-2.5-.2-5.7.7-10.6Z"/><path d="M12 22a8 8 0 0 1-8-8c0-3.8 2.6-6.2 4.7-8.1.7-.7 1.5-1.4 2-2.1l1.8-2.8.2 3.3c.1 1.5.5 2.7 1.1 3.7.4-.6.7-1.3.7-2.1l2.1 1.5A8 8 0 0 1 12 22Z" opacity=".2"/></svg></div>Ofertas relâmpago</div>
+          <div class="benefit"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg></div>Lançamentos e novidades</div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/SEU_CODIGO_DO_GRUPO";
+    document.getElementById("whatsappCta").href = WHATSAPP_GROUP_URL;
+  </script>
+</body>
+</html>
