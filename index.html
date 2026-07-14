@@ -34,7 +34,6 @@
 
   fbq('init', '1007235838588459');
   fbq('track', 'PageView');
-  fbq('track', 'Lead');
   </script>
   <noscript>
   <img height="1" width="1" style="display:none"
@@ -487,7 +486,24 @@
 
   <script>
     const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/GdK8kE9PThyF8FcrokxAlp";
-    document.getElementById("whatsappCta").href = WHATSAPP_GROUP_URL;
+    const whatsappCta = document.getElementById("whatsappCta");
+
+    whatsappCta.href = WHATSAPP_GROUP_URL;
+    whatsappCta.addEventListener("click", function(event) {
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+        return;
+      }
+
+      if (typeof fbq !== "function") {
+        return;
+      }
+
+      event.preventDefault();
+      fbq("track", "Lead");
+      window.setTimeout(function() {
+        window.location.href = WHATSAPP_GROUP_URL;
+      }, 150);
+    });
   </script>
 </body>
 </html>
