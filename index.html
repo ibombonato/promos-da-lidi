@@ -486,6 +486,7 @@
 
   <script>
     const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/GdK8kE9PThyF8FcrokxAlp";
+    const TRACKING_REDIRECT_DELAY_MS = 150;
     const whatsappCta = document.getElementById("whatsappCta");
 
     whatsappCta.href = WHATSAPP_GROUP_URL;
@@ -494,15 +495,19 @@
         return;
       }
 
-      if (typeof fbq !== "function") {
-        return;
-      }
-
       event.preventDefault();
-      fbq("track", "Lead");
+
       window.setTimeout(function() {
         window.location.href = WHATSAPP_GROUP_URL;
-      }, 150);
+      }, TRACKING_REDIRECT_DELAY_MS);
+
+      try {
+        if (typeof fbq === "function") {
+          fbq("track", "Lead");
+        }
+      } catch (error) {
+        window.location.href = WHATSAPP_GROUP_URL;
+      }
     });
   </script>
 </body>
