@@ -1,5 +1,7 @@
 # Histórico de experimentos CRO — ICB
 
+> **Atualização de 2026-10-13:** a decisão inicial de esperar por causa de trocas de convite foi corrigida após esclarecimento do responsável e verificação do diff. Rotações operacionais de grupo não reiniciam a avaliação de Lead/LPV. **CRO-001 está Em PR**, implementado e validado mobile nesta branch, ainda não publicado. Consulte as seções de correção e experimento ao fim do arquivo; os registros iniciais foram preservados como histórico, não como orientação vigente.
+
 ## Escopo e salvaguardas
 
 - Repositório: `ibombonato/promos-da-lidi`; base de publicação: `main`.
@@ -30,13 +32,13 @@ Não declarar causalidade pela comparação entre campanhas distintas. Interpret
 - Portanto, as janelas encerradas em 2026-10-12 **não avaliam a versão publicada em 2026-10-13**. Trocas de grupo podem afetar a etapa posterior ao clique e a comparabilidade; não são evidência de ganho de copy/layout.
 - O [PR #3](https://github.com/ibombonato/promos-da-lidi/pull/3), integrado em 2026-08-07, tornou o CTA explícito. Não há métricas antes/depois ou publicação histórica suficientemente documentadas para classificá-lo como vencedor/perdedor. Não repetir essa hipótese como se o CTA atual fosse ambíguo.
 
-## Experimentos
+## Estado dos experimentos na primeira análise — superado pelo CRO-001 abaixo
 
-Nenhum experimento novo implementado nesta execução. Não atribuir IDs retrospectivos ou resultados inventados a PRs antigos. O próximo experimento novo deve usar **CRO-001** após consulta deste histórico e dos PRs.
+Nenhum experimento novo foi implementado na primeira análise desta execução. Essa decisão foi revisada após o esclarecimento operacional; o novo **CRO-001** está registrado ao fim deste arquivo. Não atribuir IDs retrospectivos ou resultados inventados a PRs antigos.
 
 Cada registro deve conter ID sequencial; criação e publicação real; status (Proposto, Em PR, Em avaliação, Vencedor, Perdedor ou Inconclusivo); problema/hipótese/evidências; mudança objetiva; métricas antes e depois para ambas as campanhas; períodos exatos; impacto absoluto e relativo; incertezas, conclusão e aprendizados; PR, commit de publicação e screenshot mobile 390×844. Atualizar sem apagar registros anteriores. Dados posteriores ficam pendentes até a publicação confirmada; nenhum experimento é vencedor só porque subiu num dia.
 
-## Diagnóstico de 2026-10-13
+## Diagnóstico inicial de 2026-10-13 — dados preservados; justificativa de espera corrigida abaixo
 
 ### Fontes e períodos
 
@@ -90,7 +92,7 @@ Excluir 2026-10-13, ainda parcial no fuso da conta. CVR e CPL são calculados a 
 
 [Baseline 360×800](cro/screenshots/baseline-2026-10-13-360x800.png)
 
-## Hipóteses em backlog — nenhuma implementada
+## Backlog da análise inicial — headline promovida ao CRO-001; contraste permanece separado
 
 As notas ICE abaixo são julgamentos de priorização em escala 1–10, não resultados ou previsões estatísticas. Não implementar simultaneamente.
 
@@ -138,7 +140,7 @@ Registros compactos por data de execução; adicionar novos registros cronologic
 | 2026-10-11 | 430 | 158 | 36,74% | 1080 | 393 | 36,39% |
 | 2026-10-12 | 533 | 211 | 39,59% | 1147 | 428 | 37,31% |
 
-## Próxima execução
+## Plano inicial de acompanhamento — superado pela correção e plano do CRO-001 abaixo
 
 1. Ler este arquivo completo na versão mais recente de `main` **e nas branches/PRs de CRO pendentes**. Se o PR de histórico não tiver sido integrado, reutilizar/atualizar esse PR; não criar inicialização duplicada.
 2. Confirmar nova publicação e destinos sem os alterar. Separar dados anteriores/posteriores à publicação de 2026-10-13T19:50:46Z; métricas diárias não isolam a hora de publicação. A primeira data inteiramente posterior é 2026-10-14 no fuso da conta; acumular volume e consistência, não impor um número fixo de dias como aprovação.
@@ -147,3 +149,111 @@ Registros compactos por data de execução; adicionar novos registros cronologic
 5. Não atribuir os resultados desta coleta ao histórico novo: documentação não alterou o funil. Nenhum vencedor/perdedor foi declarado.
 
 **PR de acompanhamento (documentação, não experimento):** [#15 — iniciar histórico e diagnóstico ICB](https://github.com/ibombonato/promos-da-lidi/pull/15), aberto para aprovação humana; sem merge ou publicação nesta execução.
+
+## Correção operacional — 2026-10-13
+
+**Esclarecimento do responsável:** os convites do WhatsApp são rotacionados conforme os grupos atingem capacidade, mantendo o mesmo comportamento e conteúdo da landing. Essa rotina não afeta o clique no CTA que define o Lead e não é motivo para adiar um experimento de CRO.
+
+**Verificação técnica:** comparando `87158c2` (2026-09-29) com `origin/main` (`ea788ca`), `index3.html` difere somente nas duas referências ao convite (`href` e `WHATSAPP_GROUP_URL`). Após normalizar esses valores, o HTML inteiro é idêntico. O evento Lead é acionado antes da navegação, no mesmo handler preservado. Não houve mudança de headline, layout, oferta, botão, Pixel ou evento nesse intervalo.
+
+**Correção da interpretação anterior:** as métricas de 29-set a 12-out são uma referência válida do mesmo tratamento visível atual para Lead/LPV, embora os destinos operacionais variem. É desnecessário esperar uma nova janela apenas por rotações de convite. Capacidade/entrada efetiva pertencem à etapa posterior ao clique, separada da métrica proxy; isso não muda a definição de conversão.
+
+**Decisão revista:** implementar agora um único experimento de headline. A diferença incerta versus controle impede declarar um vencedor, mas não impede testar uma hipótese fundamentada. O PR #15, antes exclusivamente documental, será atualizado para conter CRO-001 e seu histórico, evitando um segundo PR/experimento paralelo.
+
+**Regra para execuções futuras:** registrar trocas de convite como manutenção operacional; não tratar como experimento ou reinício de baseline quando o diff confirmar somente destinos e o CTA/evento permanecer igual. Mudanças reais em copy/layout/handler/rastreamento continuam exigindo classificação própria. O agente não está autorizado a trocar os convites por iniciativa própria.
+
+## CRO-001 — Tornar explícita a oferta de perfumes no WhatsApp
+
+**Data de criação:** 2026-10-13
+
+**Data de publicação:** Pendente — não publicado.
+
+**Status:** Em PR
+
+**Branch:** `cro/icb-baseline-2026-10-13`, worktree isolada; reutilizada exclusivamente para este experimento e histórico.
+
+**Pull Request:** [#15 — CRO-001](https://github.com/ibombonato/promos-da-lidi/pull/15), convertido de acompanhamento para este experimento; sem merge/auto-merge/deploy.
+
+**Commit de publicação:** Pendente.
+
+**Screenshot mobile:** [390×844](cro/screenshots/CRO-001-mobile.png) e [360×800](cro/screenshots/CRO-001-mobile-360x800.png), renderizados em Chromium real e inspecionados.
+
+### Problema e hipótese
+
+O headline genérico “Nunca mais / Perca uma promoção!” não identifica o produto nem o canal. Os anúncios ativos citam perfumes, Natura e O Boticário; o visitante precisa ler o parágrafo posterior para reconhecer a oferta. **Explicitar “Perfumes em oferta / No seu WhatsApp” no mesmo bloco deve reduzir o esforço de compreensão e melhorar a correspondência anúncio–landing, aumentando a propensão ao clique por LPV.**
+
+### Evidências e confiança
+
+- Anúncios reais ativos prometem “Perfumes da Natura e O Boticário com preço baixo e cupom de desconto” e “Promos de perfumes e produtos de beleza...”; a nova copy explicita apenas fatos já presentes na oferta, sem criar desconto, número, exclusividade ou depoimento.
+- Baseline operacional recente: CVR de 36,98% em 5387 LPV/1992 Leads nos 14 dias e 35,53% em 2969 LPV/1055 Leads nos 7 dias. Há volume para formular e acompanhar um teste; a falta de superioridade estatística hoje não invalida a hipótese de melhoria.
+- Screenshots da versão atual demonstram headline genérico e CTA já visível. Não há heatmap, pesquisa de usuários ou teste prévio que prove abandono causado pela headline; o ganho permanece uma hipótese.
+- ICE: impacto 7, confiança 5, facilidade 9 (priorização qualitativa, não previsão de lift).
+
+### Alteração realizada — uma variável principal
+
+Somente os dois textos do bloco de headline em `index3.html`:
+
+| Elemento | Antes | Implementado na branch |
+|---|---|---|
+| `h1` | Nunca mais | Perfumes em oferta |
+| `h2` | Perca uma promoção! | No seu WhatsApp |
+
+CSS, parágrafo de oferta, prova social existente, benefícios, CTA, recursos, convites, parâmetros, Pixel/eventos e JavaScript foram preservados byte a byte. O contraste do CTA não foi alterado neste experimento. A quebra natural da nova headline foi validada mobile, sem modificar tipografia, espaçamento ou posição do botão como segunda hipótese; seu fluxo vertical muda apenas pela altura natural do texto.
+
+### QA da implementação
+
+- Guard de substituição exata aprovado: `index3.html` difere de `origin/main` exclusivamente nos dois textos `h1`/`h2`; CSS, todos os scripts, CTA completo, href/src e `index4_li.html` idênticos ao baseline. Nenhum recurso ou dependência de execução novo.
+- Teste RED do novo headline falhou antes da alteração, conforme esperado; depois da implementação passou. Script real do CTA executado em Node VM: 11 verificações aprovadas, sem rede/entrada no WhatsApp.
+- Chromium real na prévia HTTP local: screenshots exatos 390×844 e 360×800 inspecionados visualmente, sem overflow horizontal ou cortes de headline/CTA. CTA inteiro na primeira dobra: 390×844 y 503,75–565,75, altura 62 px; 360×800 y 500,141–560,141, altura 60 px.
+- Rolagem em 360×800 até o fim, grid de seis benefícios e foto íntegros. Viewports adicionais 320×740 e desktop 1280×900 sem overflow; sem exceções JavaScript observadas. Não equivale a Safari real ou Web Vitals de campo.
+- Clique físico no CTA no Chromium validou uma chamada local interceptada `['track', 'Lead']` e timer de 150 ms. Pixel/WhatsApp bloqueados antes da navegação e timer interceptado apenas no ambiente QA; URL ficou na prévia local. Nenhum evento real de Meta nem entrada no grupo foi disparado. A interceptação não está no código da landing/PR.
+
+![CRO-001 — screenshot mobile 390×844](cro/screenshots/CRO-001-mobile.png)
+
+### Métricas anteriores — snapshot real desta execução
+
+**Período principal de referência disponível:** 2026-09-29 a 2026-10-12, dias completos em America/Sao_Paulo.
+
+| Métrica | Experimental | Controle |
+|---|---|---|
+| Landing Page Views | 5387 | 7672 |
+| Leads atribuídos (proxy clique) | 1992 | 2901 |
+| CVR | 36,98% | 37,81% |
+| Investimento | R$ 1162,06 | R$ 1568,22 |
+| CPL proxy | R$ 0,58 | R$ 0,54 |
+
+**Sensibilidade recente:** 2026-10-06 a 2026-10-12: experimental 1055/2969 = 35,53%, controle 1927/5177 = 37,22%. As janelas de 1/3 dias e série diária permanecem no diagnóstico acima; não escolher retrospectivamente apenas a janela mais favorável.
+
+### Métricas posteriores
+
+**Período:** Pendente da publicação real do CRO-001 — não da última rotação de convite.
+
+| Métrica | Experimental | Controle |
+|---|---|---|
+| Landing Page Views | Pendente | Pendente |
+| Leads atribuídos (proxy clique) | Pendente | Pendente |
+| CVR | Pendente | Pendente |
+| CPL proxy | Pendente | Pendente |
+
+**Impacto absoluto em p.p.:** Pendente.
+
+**Impacto relativo em %:** Pendente.
+
+**Conclusão:** Implementado e validado na branch/PR, ainda não publicado; não há resultado de conversão deste experimento.
+
+**Aprendizado já confirmado:** rotações de convite não são modificações do tratamento visível nem reset do baseline de clique.
+
+### Resultado esperado e plano de avaliação pré-definido
+
+1. **Métrica principal:** Lead atribuído/LPV, definição inalterada; CPL proxy secundário. Objetivo de planejamento: detectar aproximadamente **+3 p.p.**, não promessa de resultado. Não medir sucesso por quantidade de commits ou por um dia favorável.
+2. Confirmar commit de publicação e HTML real antes de começar o período posterior. Quando a publicação ocorrer, congelar a referência dos **14 dias completos imediatamente anteriores** à publicação, aplicando a mesma regra ao controle; se o merge demorar, atualizar esse baseline sem escolher o período pelo resultado. As métricas acima são o snapshot de planejamento disponível hoje.
+3. Excluir o dia de publicação parcialmente exposto ao tratamento da comparação diária principal. Acumular amostra posterior e cobertura de dias da semana/variação de tráfego; mudanças operacionais de convite não reiniciam essa contagem se o tratamento/evento permanecer igual.
+4. Aproximação de planejamento para duas proporções independentes, CVR inicial 36,98%, MDE +3 p.p., alfa bilateral 5%, poder 80%: **4128 LPV por período**. É uma referência de volume calculada, não garantia de poder em dados atribuídos/dependentes nem critério único de término. Não avaliar como vencedor/perdedor antes de volume e cobertura adequados apenas por oscilações diárias; verificar intervalos, consistência e contexto do controle.
+5. Calcular diferenças absolutas/relativas antes/depois, IC95% e evolução do controle em períodos comparáveis; inspecionar mix de criativos/dispositivos/posicionamentos e revisões de atribuição. Campanhas distintas e antes/depois não randomizados limitam causalidade mesmo com intervalos favoráveis. Resultado positivo sem suporte suficiente fica Inconclusivo.
+6. Manter CRO-001 como único experimento pendente/em avaliação. Regressão funcional grave exige comunicar/propor correção/reversão por PR, nunca merge/deploy/reversão automática.
+
+### Diário — revisão da decisão na mesma data
+
+| Execução | Referência | CVR exp. / controle | LPV exp. / controle | Experimento | Decisão |
+|---|---|---|---|---|---|
+| 2026-10-13 — após esclarecimento operacional | 29-set a 12-out; snapshot da mesma coleta | 36,98% / 37,81% | 5387 / 7672 | CRO-001 — Em PR | Headline implementada e QA aprovado; aguardar aprovação/publicação humana e avaliar dados posteriores ao experimento, não às rotações de convite. |
