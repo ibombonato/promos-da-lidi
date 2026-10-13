@@ -1,6 +1,6 @@
 # Histórico de experimentos CRO — ICB
 
-> **Atualização de 2026-10-13:** a decisão inicial de esperar por causa de trocas de convite foi corrigida após esclarecimento do responsável e verificação do diff. Rotações operacionais de grupo não reiniciam a avaliação de Lead/LPV. **CRO-001 está Em PR**, implementado e validado mobile nesta branch, ainda não publicado. Consulte as seções de correção e experimento ao fim do arquivo; os registros iniciais foram preservados como histórico, não como orientação vigente.
+> **Atualização de 2026-10-13 após merge humano:** **CRO-001 está Em avaliação**, com publicação confirmada no commit `1a377ea858b18189d7b40b1fd63990376e777712`; o build Pages terminou em 2026-10-13T23:42:37Z (20:42:37 em São Paulo) e o HTML público conferiu byte a byte. A rotina diária está agendada às 09h de São Paulo. Rotações operacionais de convite não reiniciam a avaliação de Lead/LPV. Os registros iniciais foram preservados como histórico, não como orientação vigente.
 
 ## Escopo e salvaguardas
 
@@ -166,15 +166,15 @@ Registros compactos por data de execução; adicionar novos registros cronologic
 
 **Data de criação:** 2026-10-13
 
-**Data de publicação:** Pendente — não publicado.
+**Data de publicação:** 2026-10-13T23:42:37Z / 2026-10-13 20:42:37 America/Sao_Paulo — timestamp de conclusão do build Pages, confirmado por HTML público HTTP 200 idêntico ao commit publicado.
 
-**Status:** Em PR
+**Status:** Em avaliação
 
 **Branch:** `cro/icb-baseline-2026-10-13`, worktree isolada; reutilizada exclusivamente para este experimento e histórico.
 
-**Pull Request:** [#15 — CRO-001](https://github.com/ibombonato/promos-da-lidi/pull/15), convertido de acompanhamento para este experimento; sem merge/auto-merge/deploy.
+**Pull Request:** [#15 — CRO-001](https://github.com/ibombonato/promos-da-lidi/pull/15), mesclado pelo humano em 2026-10-13T23:42:06Z. A publicação ocorreu pelo fluxo Pages existente após essa aprovação; o agente não realizou merge, auto-merge ou deploy.
 
-**Commit de publicação:** Pendente.
+**Commit de publicação:** `1a377ea858b18189d7b40b1fd63990376e777712`.
 
 **Screenshot mobile:** [390×844](cro/screenshots/CRO-001-mobile.png) e [360×800](cro/screenshots/CRO-001-mobile-360x800.png), renderizados em Chromium real e inspecionados.
 
@@ -212,7 +212,7 @@ CSS, parágrafo de oferta, prova social existente, benefícios, CTA, recursos, c
 
 ### Métricas anteriores — snapshot real desta execução
 
-**Período principal de referência disponível:** 2026-09-29 a 2026-10-12, dias completos em America/Sao_Paulo.
+**Período principal de referência congelado após confirmação da publicação:** 2026-09-29 a 2026-10-12, os 14 dias completos anteriores ao dia de publicação, em America/Sao_Paulo. Os valores abaixo são o snapshot da coleta de 2026-10-13; revisões de atribuição posteriores deverão ser registradas como revisões, sem apagar esse snapshot.
 
 | Métrica | Experimental | Controle |
 |---|---|---|
@@ -226,7 +226,7 @@ CSS, parágrafo de oferta, prova social existente, benefícios, CTA, recursos, c
 
 ### Métricas posteriores
 
-**Período:** Pendente da publicação real do CRO-001 — não da última rotação de convite.
+**Período:** A partir de 2026-10-14, primeiro dia completo após a publicação do CRO-001. O dia 2026-10-13 contém tratamentos misturados e fica excluído da comparação diária principal. Na confirmação de publicação ainda não existe dia posterior completo; métricas abaixo permanecem pendentes, não zero.
 
 | Métrica | Experimental | Controle |
 |---|---|---|
@@ -239,7 +239,7 @@ CSS, parágrafo de oferta, prova social existente, benefícios, CTA, recursos, c
 
 **Impacto relativo em %:** Pendente.
 
-**Conclusão:** Implementado e validado na branch/PR, ainda não publicado; não há resultado de conversão deste experimento.
+**Conclusão:** Publicação confirmada após merge humano; experimento em avaliação. Ainda não existe dia posterior completo nem evidência de impacto. Não declarar vencedor/perdedor agora.
 
 **Aprendizado já confirmado:** rotações de convite não são modificações do tratamento visível nem reset do baseline de clique.
 
@@ -257,3 +257,29 @@ CSS, parágrafo de oferta, prova social existente, benefícios, CTA, recursos, c
 | Execução | Referência | CVR exp. / controle | LPV exp. / controle | Experimento | Decisão |
 |---|---|---|---|---|---|
 | 2026-10-13 — após esclarecimento operacional | 29-set a 12-out; snapshot da mesma coleta | 36,98% / 37,81% | 5387 / 7672 | CRO-001 — Em PR | Headline implementada e QA aprovado; aguardar aprovação/publicação humana e avaliar dados posteriores ao experimento, não às rotações de convite. |
+
+## Acompanhamento pós-merge — 2026-10-13
+
+**Evidências de publicação:** PR #15 MERGED em 23:42:06Z; Pages build `1a377ea858b18189d7b40b1fd63990376e777712` com status `built`, iniciado 23:42:08Z e concluído 23:42:37Z; HTML público de `index3.html` HTTP 200, byte a byte idêntico a `origin/main`, com “Perfumes em oferta / No seu WhatsApp”. Publicação foi confirmada separadamente do merge. Nenhuma alteração de código nesta atualização de acompanhamento.
+
+| Execução | Referência | CVR exp. / controle | LPV exp. / controle | Experimento | Decisão |
+|---|---|---|---|---|---|
+| 2026-10-13 — confirmação pós-merge | Baseline 29-set–12-out; pós-CRO-001 ainda sem dia completo | Baseline 36,98% / 37,81%; pós pendente | Baseline 5387 / 7672; pós pendente | CRO-001 — Em avaliação | Confirmar publicação, congelar período anterior e acompanhar diariamente. Não implementar outro experimento durante essa avaliação. |
+
+### Rotina diária configurada e verificada
+
+- Job do perfil `rich-conversion`: `714c96de5c45`, nome “ICB CRO diário — acompanhamento às 09h São Paulo”.
+- Cron `0 12 * * *` em UTC, equivalente a **09h America/Sao_Paulo** na configuração atual. Agendamento ativo, repetição diária indefinida, continuidade habilitada, sem pin de modelo. Scheduler confirmado ativo por `hermes -p rich-conversion cron status`.
+- Próxima execução: **2026-10-14T12:00:00Z / 14-out às 09h São Paulo**. Esse primeiro acompanhamento valida estado/baseline e diagnóstico; ainda não haverá um dia inteiro posterior ao experimento.
+- **15-out às 09h:** primeira leitura de um dia inteiro do CRO-001 (14-out).
+- **17-out às 09h:** checkpoint exploratório com três dias completos (14–16-out), sem classificar vencedor ou interromper apenas por oscilação.
+- Depois, acompanhamento diário de CVR/CPL/LPV/volume/controle e backlog. Planejar futuras hipóteses em paralelo é permitido; publicar/implementar tratamentos simultâneos não é.
+- Entrega do agendamento: **local**, com relatório salvo pelo scheduler em `/home/ibombonatohermes/.hermes/profiles/rich-conversion/cron/output/714c96de5c45/`; não existe promessa de notificação automática nesta conversa TUI. O agente também mantém este histórico por PR, reutilizando um PR de acompanhamento pendente em vez de criar duplicatas.
+
+### Previsão de volume, não prazo de conclusão
+
+Com o tráfego do snapshot recente, experimental tem média de 424,14 LPV/dia na janela de 7 dias e 384,79 na janela de 14 dias. Para acumular a referência aproximada de 4128 LPV posteriores seriam **10–11 dias completos**, se esse ritmo se mantiver: primeira revisão matinal com esse volume estimado em **24–25/out**. Isso é projeção, não data obrigatória para concluir ou lançar CRO-002. A decisão depende de volume real, incerteza, consistência, cobertura semanal e fatores externos; sem suporte suficiente, resultado Inconclusivo.
+
+### Materiais para próximos experimentos
+
+Nenhum material extra é necessário para medir CRO-001 ou preparar a hipótese de contraste do CTA. Para futuras mudanças de confiança/demonstração de valor, solicitar apenas materiais reais: exemplos recentes de ofertas/cupons com loja/data/preço verificáveis; screenshot do conteúdo do grupo com nomes/telefones ocultos; depoimentos autorizados; comprovação da afirmação existente “Mais de 16.000” ou número atual verificável sem inflar por duplicidade de participantes. Nenhum material será inventado ou usado como prova social validada sem evidência.
