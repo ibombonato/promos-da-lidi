@@ -1,6 +1,6 @@
 # Histórico de experimentos CRO — ICB
 
-> **Atualização de 2026-10-13:** a decisão inicial de esperar por causa de trocas de convite foi corrigida após esclarecimento do responsável e verificação do diff. Rotações operacionais de grupo não reiniciam a avaliação de Lead/LPV. **CRO-001 está Em PR**, implementado e validado mobile nesta branch, ainda não publicado. Consulte as seções de correção e experimento ao fim do arquivo; os registros iniciais foram preservados como histórico, não como orientação vigente.
+> **Atualização de 2026-10-13 após merge humano:** **CRO-001 está Em avaliação**, com publicação confirmada no commit `1a377ea858b18189d7b40b1fd63990376e777712`; o build Pages terminou em 2026-10-13T23:42:37Z (20:42:37 em São Paulo) e o HTML público conferiu byte a byte. A rotina diária está agendada às 09h de São Paulo. Rotações operacionais de convite não reiniciam a avaliação de Lead/LPV. Os registros iniciais foram preservados como histórico, não como orientação vigente.
 
 ## Escopo e salvaguardas
 
@@ -120,6 +120,8 @@ Registros compactos por data de execução; adicionar novos registros cronologic
 | Execução | Dia completo de referência | CVR experimental | CVR controle | LPV experimental / controle | Experimento | Decisão e observações |
 |---|---|---|---|---|---|---|
 | 2026-10-13 | 2026-10-12 | 39,59% | 37,31% | 533 / 1147 | Nenhum formal em avaliação | **Aguardar uma referência limpa da versão atual; não alterar landing.** Inicializar histórico e registrar dados. Destinos mudaram em 12/13-out; diferença 7d incerta e tráfego não randomizado. |
+| 2026-10-14 — 09h São Paulo | 2026-10-13, dia misto excluído da avaliação principal | 38,34% | 36,87% | 459 / 990 | CRO-001 — Em avaliação | Manter landing: nenhum dia pós-tratamento completo ainda; publicação e baseline reconfirmados. Atualizar somente documentação no PR #16. |
+| 2026-10-15 — 09h São Paulo | 2026-10-14, primeiro dia completo pós-publicação | 40,93% | 39,42% | 430 / 964 | CRO-001 — Em avaliação | Manter tratamento: resultado inicial inconclusivo, somente 10,42% do volume de planejamento; controle também subiu. Rotação operacional PR #17 não reinicia avaliação. Atualizar mesmo PR documental #16. |
 
 ### Série diária retrospectiva — snapshot de 2026-10-13
 
@@ -166,15 +168,15 @@ Registros compactos por data de execução; adicionar novos registros cronologic
 
 **Data de criação:** 2026-10-13
 
-**Data de publicação:** Pendente — não publicado.
+**Data de publicação:** 2026-10-13T23:42:37Z / 2026-10-13 20:42:37 America/Sao_Paulo — timestamp de conclusão do build Pages, confirmado por HTML público HTTP 200 idêntico ao commit publicado.
 
-**Status:** Em PR
+**Status:** Em avaliação
 
 **Branch:** `cro/icb-baseline-2026-10-13`, worktree isolada; reutilizada exclusivamente para este experimento e histórico.
 
-**Pull Request:** [#15 — CRO-001](https://github.com/ibombonato/promos-da-lidi/pull/15), convertido de acompanhamento para este experimento; sem merge/auto-merge/deploy.
+**Pull Request:** [#15 — CRO-001](https://github.com/ibombonato/promos-da-lidi/pull/15), mesclado pelo humano em 2026-10-13T23:42:06Z. A publicação ocorreu pelo fluxo Pages existente após essa aprovação; o agente não realizou merge, auto-merge ou deploy.
 
-**Commit de publicação:** Pendente.
+**Commit de publicação:** `1a377ea858b18189d7b40b1fd63990376e777712`.
 
 **Screenshot mobile:** [390×844](cro/screenshots/CRO-001-mobile.png) e [360×800](cro/screenshots/CRO-001-mobile-360x800.png), renderizados em Chromium real e inspecionados.
 
@@ -212,7 +214,7 @@ CSS, parágrafo de oferta, prova social existente, benefícios, CTA, recursos, c
 
 ### Métricas anteriores — snapshot real desta execução
 
-**Período principal de referência disponível:** 2026-09-29 a 2026-10-12, dias completos em America/Sao_Paulo.
+**Período principal de referência congelado após confirmação da publicação:** 2026-09-29 a 2026-10-12, os 14 dias completos anteriores ao dia de publicação, em America/Sao_Paulo. Os valores abaixo são o snapshot da coleta de 2026-10-13; revisões de atribuição posteriores deverão ser registradas como revisões, sem apagar esse snapshot.
 
 | Métrica | Experimental | Controle |
 |---|---|---|
@@ -226,20 +228,20 @@ CSS, parágrafo de oferta, prova social existente, benefícios, CTA, recursos, c
 
 ### Métricas posteriores
 
-**Período:** Pendente da publicação real do CRO-001 — não da última rotação de convite.
+**Período atual:** 2026-10-14, primeiro dia completo após a publicação do CRO-001; snapshot consultado em 2026-10-15. O dia 2026-10-13 contém tratamentos misturados e fica excluído da comparação diária principal. Na confirmação de publicação e na execução de 14/out, as métricas posteriores estavam pendentes, não zero; esses registros foram preservados nas seções datadas.
 
 | Métrica | Experimental | Controle |
 |---|---|---|
-| Landing Page Views | Pendente | Pendente |
-| Leads atribuídos (proxy clique) | Pendente | Pendente |
-| CVR | Pendente | Pendente |
-| CPL proxy | Pendente | Pendente |
+| Landing Page Views | 430 | 964 |
+| Leads atribuídos (proxy clique) | 176 | 380 |
+| CVR | 40,93% | 39,42% |
+| CPL proxy | R$ 0,55 | R$ 0,50 |
 
-**Impacto absoluto em p.p.:** Pendente.
+**Variação observada pós−pré em p.p.:** Experimental +3,95; controle +1,61. IC95% aproximado experimental −0,87 a +8,78 p.p. Não é impacto causal comprovado.
 
-**Impacto relativo em %:** Pendente.
+**Variação relativa observada em %:** Experimental +10,69%; controle +4,25%. Diferença entre evoluções relativas +6,44 pontos percentuais de variação relativa; entre mudanças absolutas +2,35 p.p., descritivas.
 
-**Conclusão:** Implementado e validado na branch/PR, ainda não publicado; não há resultado de conversão deste experimento.
+**Conclusão atualizada em 2026-10-15:** Publicação confirmada após merge humano; experimento Em avaliação. Primeiro dia posterior completo com resultado favorável, porém inconclusivo: somente 430 LPV, uma quarta-feira, intervalo da diferença inclui zero e controle também subiu. Não declarar vencedor/perdedor, interromper por oscilação nem iniciar tratamento simultâneo. Rotação operacional posterior de convite não reinicia a avaliação.
 
 **Aprendizado já confirmado:** rotações de convite não são modificações do tratamento visível nem reset do baseline de clique.
 
@@ -257,3 +259,128 @@ CSS, parágrafo de oferta, prova social existente, benefícios, CTA, recursos, c
 | Execução | Referência | CVR exp. / controle | LPV exp. / controle | Experimento | Decisão |
 |---|---|---|---|---|---|
 | 2026-10-13 — após esclarecimento operacional | 29-set a 12-out; snapshot da mesma coleta | 36,98% / 37,81% | 5387 / 7672 | CRO-001 — Em PR | Headline implementada e QA aprovado; aguardar aprovação/publicação humana e avaliar dados posteriores ao experimento, não às rotações de convite. |
+
+## Acompanhamento pós-merge — 2026-10-13
+
+**Evidências de publicação:** PR #15 MERGED em 23:42:06Z; Pages build `1a377ea858b18189d7b40b1fd63990376e777712` com status `built`, iniciado 23:42:08Z e concluído 23:42:37Z; HTML público de `index3.html` HTTP 200, byte a byte idêntico a `origin/main`, com “Perfumes em oferta / No seu WhatsApp”. Publicação foi confirmada separadamente do merge. Nenhuma alteração de código nesta atualização de acompanhamento.
+
+| Execução | Referência | CVR exp. / controle | LPV exp. / controle | Experimento | Decisão |
+|---|---|---|---|---|---|
+| 2026-10-13 — confirmação pós-merge | Baseline 29-set–12-out; pós-CRO-001 ainda sem dia completo | Baseline 36,98% / 37,81%; pós pendente | Baseline 5387 / 7672; pós pendente | CRO-001 — Em avaliação | Confirmar publicação, congelar período anterior e acompanhar diariamente. Não implementar outro experimento durante essa avaliação. |
+
+### Rotina diária configurada e verificada
+
+- Job do perfil `rich-conversion`: `714c96de5c45`, nome “ICB CRO diário — acompanhamento às 09h São Paulo”.
+- Cron `0 12 * * *` em UTC, equivalente a **09h America/Sao_Paulo** na configuração atual. Agendamento ativo, repetição diária indefinida, continuidade habilitada, sem pin de modelo. Scheduler confirmado ativo por `hermes -p rich-conversion cron status`.
+- Próxima execução: **2026-10-14T12:00:00Z / 14-out às 09h São Paulo**. Esse primeiro acompanhamento valida estado/baseline e diagnóstico; ainda não haverá um dia inteiro posterior ao experimento.
+- **15-out às 09h:** primeira leitura de um dia inteiro do CRO-001 (14-out).
+- **17-out às 09h:** checkpoint exploratório com três dias completos (14–16-out), sem classificar vencedor ou interromper apenas por oscilação.
+- Depois, acompanhamento diário de CVR/CPL/LPV/volume/controle e backlog. Planejar futuras hipóteses em paralelo é permitido; publicar/implementar tratamentos simultâneos não é.
+- Entrega do agendamento: **local**, com relatório salvo pelo scheduler em `/home/ibombonatohermes/.hermes/profiles/rich-conversion/cron/output/714c96de5c45/`; não existe promessa de notificação automática nesta conversa TUI. O agente também mantém este histórico por PR, reutilizando um PR de acompanhamento pendente em vez de criar duplicatas.
+
+### Previsão de volume, não prazo de conclusão
+
+Com o tráfego do snapshot recente, experimental tem média de 424,14 LPV/dia na janela de 7 dias e 384,79 na janela de 14 dias. Para acumular a referência aproximada de 4128 LPV posteriores seriam **10–11 dias completos**, se esse ritmo se mantiver: primeira revisão matinal com esse volume estimado em **24–25/out**. Isso é projeção, não data obrigatória para concluir ou lançar CRO-002. A decisão depende de volume real, incerteza, consistência, cobertura semanal e fatores externos; sem suporte suficiente, resultado Inconclusivo.
+
+### Materiais para próximos experimentos
+
+Nenhum material extra é necessário para medir CRO-001 ou preparar a hipótese de contraste do CTA. Para futuras mudanças de confiança/demonstração de valor, solicitar apenas materiais reais: exemplos recentes de ofertas/cupons com loja/data/preço verificáveis; screenshot do conteúdo do grupo com nomes/telefones ocultos; depoimentos autorizados; comprovação da afirmação existente “Mais de 16.000” ou número atual verificável sem inflar por duplicidade de participantes. Nenhum material será inventado ou usado como prova social validada sem evidência.
+
+## Acompanhamento diário — 2026-10-14
+
+**Execução:** iniciada às 09h America/Sao_Paulo; consolidação dos dados em 2026-10-14T12:06:18Z. Histórico integral de `origin/main` e do PR documental #16 consultado antes do diagnóstico; PRs abertos/fechados e commits recentes inspecionados. O único PR aberto é [#16 — acompanhamento CRO-001](https://github.com/ibombonato/promos-da-lidi/pull/16), exclusivamente `CRO_EXPERIMENTS.md`; reutilizado nesta execução, sem novo PR de experimento. Worktree própria criada a partir de `origin/main`, incorporando o histórico pendente sem modificar worktrees existentes.
+
+**Publicação reconfirmada:** PR #15 mesclado pelo humano; Pages `built` para `1a377ea858b18189d7b40b1fd63990376e777712`, conclusão do build **2026-10-13T23:42:37Z / 20:42:37 São Paulo**. Em 2026-10-14T12:06:18Z, HTML público de ambas as landings HTTP 200 idêntico byte a byte ao commit publicado. A experimental contém “Perfumes em oferta / No seu WhatsApp”; sua comparação com o pré-tratamento difere somente nos dois textos do headline. CTA, scripts, Pixel/eventos e destinos intactos, com `href` igual à constante de navegação. Nenhuma alteração de publicação posterior encontrada. Timestamp de build é evidência do sistema de publicação, não instante exato de troca para cada visitante.
+
+### Dados atuais — diagnóstico de campanhas, não resultado do headline
+
+MCP oficial Meta Ads via transporte ad hoc: sessão inicializada, protocolo negociado `2025-06-18`, conta confirmada consultável/habilitada, campos verificados e somente chamadas de leitura. Totais de investimento, impressões, cliques, LPV e Leads das quatro janelas e do baseline conciliados com a série diária Graph GET. Aliases selecionados, não somados; atribuição unificada preservada. Paginação inspecionada, sem páginas seguintes ou continuação pendente nas consultas de métricas.
+
+**Último dia completo:** 2026-10-13; **14-out está em andamento e não foi incluído**. Todas as janelas abaixo incluem o dia de publicação parcialmente exposto: servem ao diagnóstico geral e **não** ao efeito puro do CRO-001.
+
+| Janela | Período inclusivo — São Paulo | Landing | Investimento | Impressões | Cliques no link | LPV | Leads proxy | CVR | CPL proxy |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 dia | 2026-10-13 a 2026-10-13 | Experimental | R$ 92,03 | 22659 | 544 | 459 | 176 | 38,34% | R$ 0,52 |
+| 1 dia | 2026-10-13 a 2026-10-13 | Controle | R$ 183,18 | 53317 | 1185 | 990 | 365 | 36,87% | R$ 0,50 |
+| 3 dias | 2026-10-11 a 2026-10-13 | Experimental | R$ 314,92 | 72692 | 1690 | 1422 | 545 | 38,33% | R$ 0,58 |
+| 3 dias | 2026-10-11 a 2026-10-13 | Controle | R$ 634,29 | 174780 | 3835 | 3217 | 1186 | 36,87% | R$ 0,53 |
+| 7 dias | 2026-10-07 a 2026-10-13 | Experimental | R$ 669,51 | 153750 | 3569 | 3002 | 1092 | 36,38% | R$ 0,61 |
+| 7 dias | 2026-10-07 a 2026-10-13 | Controle | R$ 1160,96 | 310435 | 6874 | 5771 | 2151 | 37,27% | R$ 0,54 |
+| 14 dias | 2026-09-30 a 2026-10-13 | Experimental | R$ 1188,61 | 267983 | 6533 | 5532 | 2040 | 36,88% | R$ 0,58 |
+| 14 dias | 2026-09-30 a 2026-10-13 | Controle | R$ 1690,81 | 427889 | 9854 | 8378 | 3125 | 37,30% | R$ 0,54 |
+
+**Baseline principal congelado — 29-set a 12-out:** reconsultado hoje, sem revisão nos totais de LPV, Leads ou investimento: experimental **1992/5387 = 36,98%**, IC95% Wilson **35,70%–38,28%**, CPL R$ 0,58; controle **2901/7672 = 37,81%**, IC95% **36,73%–38,90%**, CPL R$ 0,54. Snapshot anterior preservado. A referência histórica informada de 36% continua sem denominador; nenhum teste de significância contra ela.
+
+**Pós-publicação principal:** primeiro dia elegível é **14-out**, ainda incompleto nesta leitura. LPV/Leads/CVR/CPL posteriores permanecem **pendentes, não zero**. Excluir 13-out da análise principal. Não há estimativa de lift do CRO-001, nem classificação vencedor/perdedor.
+
+### Diagnóstico, incerteza e mix
+
+- CVR 7d experimental **36,38%**, IC95% Wilson **34,67%–38,11%**; controle **37,27%**, IC95% **36,03%–38,53%**. Diferença experimental−controle **−0,90 p.p.**, IC95% normal aproximado **−3,02 a +1,23 p.p.**: comparação incerta/observacional, não efeito do headline. Experimental versus referência histórica36: **+0,38 p.p. / +1,04% relativo**, somente descritivo.
+- Semanas não sobrepostas **30-set–6-out → 7–13-out**: experimental **948/2530 = 37,47% → 1092/3002 = 36,38%**, **−1,09 p.p. / −2,92% relativo**; controle **974/2607 = 37,36% → 2151/5771 = 37,27%**, **−0,09 p.p. / −0,24% relativo**. Diferença entre evoluções relativas **−2,68 pontos percentuais de variação relativa**, entre mudanças absolutas **−1,01 p.p.**; não atribuir à publicação noturna de 13-out nem usar como causalidade.
+- Campanhas e conjuntos continuam ACTIVE. Experimental mantém dois anúncios efetivamente ativos: `120251541120490505` (**935 Leads / 2566 LPV**, CVR 36,44%, R$ 579,02) e `120250848857170505` (**157/436**, CVR 36,01%, R$ 90,49); criativo antigo permanece PAUSED. Controle tem `120250926403940505` ativo apesar do nome “PAUSADO”. Copy/destinos atuais permanecem alinhados às páginas corretas; nenhum timestamp novo de edição nesses anúncios/conjuntos em relação ao diagnóstico anterior. Timestamp sozinho não prova ausência de todo fator externo.
+- Pixel `1504398471438133`; atribuição dos dois conjuntos continua clique7d/visualização1d/vídeo-engajado1d. Lead no script é proxy pré-redirecionamento, não confirmação de participante. Compartilhar Pixel/atribuição não fornece coortes deduplicadas.
+- LPV/clique 7d: **84,11% / 83,95%**; sem discrepância grosseira exclusiva da experimental. Dispositivos: Android smartphone **766/1993 = 38,43% / 1452/3641 = 39,88%**; iPhone **325/1007 = 32,27% / 697/2122 = 32,85%**. A menor taxa de iPhone nas duas campanhas não comprova falha de Safari.
+- Posicionamentos Instagram 7d: Stories **909/2563 = 35,47% / 1841/5106 = 36,06%**; feed **150/344 = 43,60% / 202/432 = 46,76%**; Reels **33/95 = 34,74% / 107/229 = 46,72%**. Mix e amostras diferentes limitam comparabilidade; preservar segmentação/Meta em leitura.
+
+### Decisão e próxima observação
+
+**Decisão:** manter CRO-001 **Em avaliação**, sem mudança em `index3.html` ou controle. Gate concreto faltante: um dia pós-publicação completo, seguido de volume/consistência suficientes. A primeira coleta elegível ocorre em **15-out**, incluindo 14-out; isso inicia medição, não encerra avaliação. Checkpoint exploratório de três dias completos em 17-out, sem parada por primeiro p-valor favorável.
+
+Plano original mantido: MDE +3 p.p., alfa bilateral 5%, poder80%, referência aproximada **4128 LPV/período**, sob hipóteses binomiais. Hoje, médias experimentais de **428,86 LPV/dia (7d)** e **395,14 (14d)** projetam **10–11 dias completos** para esse volume pós-tratamento, com primeiras consultas matinais estimadas em **24–25/out** se o ritmo persistir. Não é garantia de poder, data de vitória nem único critério; conferir IC95%, cobertura semanal, consistência, atribuição e mix. As datas são observações planejadas, não configuração nova de agenda.
+
+Backlog preservado: contraste do CTA como teste separado, não implementado enquanto CRO-001 é avaliado. Não depende de material extra. Provas sociais/depoimentos/prints/ofertas exigem evidência real, autorização e anonimização quando aplicável; sem invenção ou ampliação da afirmação existente não comprovada.
+
+**Escopo desta execução:** somente documentação no PR #16; nenhum merge, auto-merge, deploy, alteração Meta, rastreamento, convite ou mensagem externa. QA mobile de implementação não foi repetida hoje porque não houve alteração de HTML/CSS/scripts; o HTML atual foi reconfirmado idêntico ao já validado em 390×844 e 360×800. Isso não equivale a novo teste de Safari real ou performance de campo.
+
+**Artefatos locais sem secrets:** `/home/ibombonatohermes/work/hermes-scratch/cro-icb-2026-10-14/`: `analysis.json`, `daily-graph.json` (série diária completa 29-set–13-out com investimento/impressões/cliques/LPV/Leads), respostas MCP atuais, `traffic-audit.json`, `live-validation.json`, `report.md` e verificação remota do PR. Nenhum snapshot antigo foi utilizado como substituto dos dados atuais.
+
+## Acompanhamento diário — 2026-10-15
+
+**Execução:** iniciada às 09h America/Sao_Paulo; consolidação em 2026-10-15T12:03:41Z. Histórico integral de origin/main e do PR #16, PRs abertos/fechados e commits consultados antes do diagnóstico. Worktree nova a partir de origin/main (`b72e3ce`), incorporando histórico pendente sem alterar worktrees existentes. Único PR aberto: #16, exclusivamente documental; reutilizado, sem novo experimento.
+
+**Publicação e manutenção operacional:** build inicial do CRO-001 reconfirmado pela API Pages: `1a377ea858b18189d7b40b1fd63990376e777712`, concluído em 2026-10-13T23:42:37Z / 20:42:37 São Paulo. Humano mesclou [PR #17](https://github.com/ibombonato/promos-da-lidi/pull/17) em 2026-10-15T03:26:29Z; diff contém somente as duas referências do convite em index3.html. Pages atual `b72e3cea4605dc35b287772cc0d592e49a53241a`, build `built` concluído em 2026-10-15T03:27:07Z / 00:27:07 São Paulo. Às 12:02:13Z, ambas as páginas públicas HTTP200 e byte a byte iguais ao commit. Experimental normalizada apenas nos convites é idêntica ao tratamento inicial; controle intacto. href/constante coerentes; headline, CSS, CTA, Pixel/evento/handler preservados; Lead continua antes da navegação. **Rotação não reinicia CRO-001 nem baseline.** Build é evidência do sistema, não instante exato para cada visitante.
+
+### Dados atuais e conciliação
+
+MCP oficial ad hoc: sessão inicializada, protocolo2025-06-18, schemas/conta consultável e campos verificados; somente ferramentas de leitura. Totais das quatro janelas e baseline conciliados com série diária Graph GET, aliases selecionados, atribuição unificada preservada e paginação/continuações inspecionadas. Breakdowns7d/pós conciliados em contagens; dispositivo experimental7d soma R$700,609999 versus total R$700,61, microarredondamento inferior a um centavo, sem divergência nos totais principais. 15/out parcial excluído.
+
+| Dias | Período inclusivo — São Paulo | Landing | Investimento | Impressões | Cliques no link | LPV | Leads proxy | CVR | CPL proxy |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | 2026-10-14 a 2026-10-14 | Experimental | R$ 96,37 | 22577 | 535 | 430 | 176 | 40,93% | R$ 0,55 |
+| 1 | 2026-10-14 a 2026-10-14 | Controle | R$ 191,78 | 49723 | 1153 | 964 | 380 | 39,42% | R$ 0,50 |
+| 3 | 2026-10-12 a 2026-10-14 | Experimental | R$ 297,60 | 71555 | 1704 | 1422 | 563 | 39,59% | R$ 0,53 |
+| 3 | 2026-10-12 a 2026-10-14 | Controle | R$ 592,57 | 166985 | 3698 | 3101 | 1173 | 37,83% | R$ 0,51 |
+| 7 | 2026-10-08 a 2026-10-14 | Experimental | R$ 700,61 | 159845 | 3733 | 3106 | 1149 | 36,99% | R$ 0,61 |
+| 7 | 2026-10-08 a 2026-10-14 | Controle | R$ 1282,41 | 340699 | 7580 | 6368 | 2394 | 37,59% | R$ 0,54 |
+| 14 | 2026-10-01 a 2026-10-14 | Experimental | R$ 1224,53 | 281997 | 6787 | 5716 | 2125 | 37,18% | R$ 0,58 |
+| 14 | 2026-10-01 a 2026-10-14 | Controle | R$ 1815,34 | 467838 | 10695 | 9080 | 3397 | 37,41% | R$ 0,53 |
+
+Janelas3/7/14d misturam tratamentos e servem ao diagnóstico geral, **não** ao efeito puro do headline. Período principal posterior: somente14/out; 13/out misto permanece excluído. Lead é proxy pré-redirecionamento, não entrada confirmada.
+
+### CRO-001 — primeiro dia posterior completo
+
+**Status Em avaliação; resultado inicial inconclusivo.** Baseline29/set–12/out reconsultado sem revisão de LPV/Leads/investimento: experimental1992/5387=36,98%, controle2901/7672=37,81%. Snapshot original preservado. Referência histórica36 sem denominador apenas descritiva.
+
+- Posterior14/out: experimental176/430=40,93%, IC95% Wilson36,38%–45,64%, CPL R$0,55; controle380/964=39,42%, IC95%36,38%–42,54%, CPL R$0,50.
+- Variação experimental pós−pré **+3,95p.p. / +10,69% relativo**, IC95% normal aproximado da diferença **−0,87 a +8,78p.p.**, inclui zero. Controle também subiu: **+1,61p.p. / +4,25%**, IC95% da diferença−1,66 a +4,88p.p.
+- Diferença entre mudanças absolutas **+2,35p.p.**; entre evoluções relativas **+6,44 pontos percentuais de variação relativa**. Diferença experimental−controle posterior+1,51p.p., IC95%−4,07 a +7,09p.p. Comparações observacionais, não impacto causal; não há randomização, visitantes únicos ou equivalência de tráfego garantidas. Intervalos binomiais são aproximações para eventos atribuídos potencialmente dependentes.
+- Somente430 LPV posteriores = **10,42%** da referência de planejamento4128, cobertura de apenas uma quarta-feira. Resultado favorável insuficiente para vencedor/perdedor, interrupção ou tratamento simultâneo.
+
+### Mix, evolução e revisões
+
+- Campanhas/conjuntos ACTIVE. Dois anúncios experimentais ativos (`120251541120490505`, produtos atualizados; `120250848857170505`, texto4em1), antigo pausado; controle `120250926403940505` ativo apesar do nome. Todas as bodies/titles e destinos reconferidos; anúncio→index3/index4_li corretos. Timestamps de anúncios/conjuntos inalterados desde diagnóstico anterior. Pixel1504398471438133, atribuição clique7d/visualização1d/vídeo-engajado1d em ambos.
+- Em14/out, produtos atualizados158/374 LPV, CVR42,25%, R$84,31; texto4em1 18/56,32,14%,R$12,06. Distribuição desigual/não randomizada, não declarar vencedor entre criativos.
+- Dispositivos14/out: Android smartphone exp.110/267=41,20% / controle228/542=42,07%; iPhone66/163=40,49% /150/419=35,80%. Não inferir defeito de Safari. Stories experimental157/376=41,76%; feed14/45=31,11%; Reels5/9=55,56%, amostras muito pequenas nos últimos dois.
+- LPV/clique14/out **80,37% /83,61%**, 7d **83,20% /84,01%**. Acompanhar persistência/mix antes de atribuir defeito de carregamento ao headline; não houve medição de performance de campo.
+- Semanas não sobrepostas1–7/out→8–14/out: experimental976/2610=37,39%→1149/3106=36,99% (**−0,40p.p./−1,07% relativo**); controle1003/2712=36,98%→2394/6368=37,59% (**+0,61p.p./+1,65%**). Diferença entre evoluções relativas−2,72 pontos percentuais; entre mudanças absolutas−1,01p.p. Descritivo; não atribuir uma semana quase toda anterior ao novo headline. Diferença7d experimental−controle−0,60p.p., IC95%−2,67 a +1,47p.p.
+- Revisão versus snapshot14/out: controle13/out investimento R$183,18→183,19 e impressões53317→53319; LPV990/Leads365 inalterados. Registro anterior preservado; nenhuma revisão no baseline congelado.
+
+### Decisão e próxima observação
+
+Manter CRO-001 **Em avaliação**, sem alteração de landing. Próxima coleta inclui15/out completo; checkpoint exploratório14–16/out em17/out. Gate faltante: volume/cobertura semanal/consistência e avaliação de incerteza/mix/atribuição, não confirmação de publicação nem uma nova janela após convite.
+
+Plano original mantido: MDE+3p.p., alfa bilateral5%, poder80%, referência binomial aproximada4128 LPV/período, não garantia nem único critério. Restam3698 LPV; médias443,71LPV/dia(7d) e408,29(14d) projetam mais9–10 dias completos, com consultas matinais estimadas24–25/out se tráfego se mantiver. Não encerrar por oscilação ou primeiro p-valor favorável; avaliar explicitamente o experimento antes do seguinte.
+
+Backlog: contraste do CTA em teste separado após avaliar CRO-001; nenhum material extra necessário. Futuras provas sociais somente reais/verificáveis/autorizadas/anonimizadas. Sem alteração deHTML/CSS/scripts: QA visual mobile não repetida hoje; equivalência ao tratamento já validado390×844/360×800 reconfirmada após normalizar apenasURLs. Não equivale a Safari real ou performance de campo.
+
+**Escopo:** somente CRO_EXPERIMENTS.md no mesmo PR#16; sem alteração de Meta, landings, rastreamento ou convites pelo agente, sem merge dePR/auto-merge/deploy ou mensagens externas. Artefatos atuais sem tokens em `/home/ibombonatohermes/work/hermes-scratch/cro-icb-2026-10-15/`: analysis.json, série diáriaGraph29/set–14/out, respostasMCP, audits7d/pós, validaçãoPages/live, revisão dos snapshots, report.md e remote-verification.json. Helpers reaproveitados como código; dados atuais reconsultados, nunca substituídos por snapshots antigos.
