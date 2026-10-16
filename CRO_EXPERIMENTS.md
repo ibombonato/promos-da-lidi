@@ -122,6 +122,7 @@ Registros compactos por data de execução; adicionar novos registros cronologic
 | 2026-10-13 | 2026-10-12 | 39,59% | 37,31% | 533 / 1147 | Nenhum formal em avaliação | **Aguardar uma referência limpa da versão atual; não alterar landing.** Inicializar histórico e registrar dados. Destinos mudaram em 12/13-out; diferença 7d incerta e tráfego não randomizado. |
 | 2026-10-14 — 09h São Paulo | 2026-10-13, dia misto excluído da avaliação principal | 38,34% | 36,87% | 459 / 990 | CRO-001 — Em avaliação | Manter landing: nenhum dia pós-tratamento completo ainda; publicação e baseline reconfirmados. Atualizar somente documentação no PR #16. |
 | 2026-10-15 — 09h São Paulo | 2026-10-14, primeiro dia completo pós-publicação | 40,93% | 39,42% | 430 / 964 | CRO-001 — Em avaliação | Manter tratamento: resultado inicial inconclusivo, somente 10,42% do volume de planejamento; controle também subiu. Rotação operacional PR #17 não reinicia avaliação. Atualizar mesmo PR documental #16. |
+| 2026-10-16 — 09h São Paulo | 2026-10-15, segundo dia completo pós-publicação | 41,39% | 40,72% | 418 / 921 | CRO-001 — Em avaliação | Manter tratamento: acumulado posterior 349/848 vs 755/1885, diferença entre mudanças incerta, volume 20,54% e somente quarta/quinta. Rotação PR #18 não reinicia avaliação. Atualizar mesmo PR documental #16. |
 
 ### Série diária retrospectiva — snapshot de 2026-10-13
 
@@ -228,20 +229,21 @@ CSS, parágrafo de oferta, prova social existente, benefícios, CTA, recursos, c
 
 ### Métricas posteriores
 
-**Período atual:** 2026-10-14, primeiro dia completo após a publicação do CRO-001; snapshot consultado em 2026-10-15. O dia 2026-10-13 contém tratamentos misturados e fica excluído da comparação diária principal. Na confirmação de publicação e na execução de 14/out, as métricas posteriores estavam pendentes, não zero; esses registros foram preservados nas seções datadas.
+**Período atual:** 2026-10-14 a 2026-10-15, dois dias completos após a publicação do CRO-001; snapshot consultado em 2026-10-16. O dia 2026-10-13 contém tratamentos misturados e fica excluído da comparação diária principal. Snapshots anteriores, inclusive o primeiro dia completo consultado em 15/out, permanecem nas seções datadas; pendente não significava zero.
 
 | Métrica | Experimental | Controle |
 |---|---|---|
-| Landing Page Views | 430 | 964 |
-| Leads atribuídos (proxy clique) | 176 | 380 |
-| CVR | 40,93% | 39,42% |
-| CPL proxy | R$ 0,55 | R$ 0,50 |
+| Landing Page Views | 848 | 1885 |
+| Leads atribuídos (proxy clique) | 349 | 755 |
+| CVR | 41,16% | 40,05% |
+| Investimento | R$ 188,44 | R$ 373,92 |
+| CPL proxy | R$ 0,54 | R$ 0,50 |
 
-**Variação observada pós−pré em p.p.:** Experimental +3,95; controle +1,61. IC95% aproximado experimental −0,87 a +8,78 p.p. Não é impacto causal comprovado.
+**Variação observada pós−pré em p.p.:** Experimental +4,18; controle +2,24. IC95% nominal aproximado experimental +0,62 a +7,73 p.p., sem ajuste para leituras sequenciais. Diferença entre mudanças absolutas +1,94 p.p., IC95% aproximado −2,39 a +6,26 p.p. Não é impacto causal comprovado.
 
-**Variação relativa observada em %:** Experimental +10,69%; controle +4,25%. Diferença entre evoluções relativas +6,44 pontos percentuais de variação relativa; entre mudanças absolutas +2,35 p.p., descritivas.
+**Variação relativa observada em %:** Experimental +11,30%; controle +5,92%. Diferença entre evoluções relativas +5,37 pontos percentuais de variação relativa, descritiva.
 
-**Conclusão atualizada em 2026-10-15:** Publicação confirmada após merge humano; experimento Em avaliação. Primeiro dia posterior completo com resultado favorável, porém inconclusivo: somente 430 LPV, uma quarta-feira, intervalo da diferença inclui zero e controle também subiu. Não declarar vencedor/perdedor, interromper por oscilação nem iniciar tratamento simultâneo. Rotação operacional posterior de convite não reinicia a avaliação.
+**Conclusão atualizada em 2026-10-16:** Publicação reconfirmada; experimento Em avaliação, resultado ainda inconclusivo. O intervalo nominal antes/depois experimental passou a excluir zero, mas não autoriza parada/vitória: apenas 848 LPV (20,54% da referência planejada), quarta/quinta, controle também subiu, diferença entre mudanças incerta e participação do principal anúncio aumentou. Manter plano, sem tratamento simultâneo ou parada por primeiro intervalo favorável. Rotação operacional de convite no PR #18 não reinicia a avaliação.
 
 **Aprendizado já confirmado:** rotações de convite não são modificações do tratamento visível nem reset do baseline de clique.
 
@@ -384,3 +386,61 @@ Plano original mantido: MDE+3p.p., alfa bilateral5%, poder80%, referência binom
 Backlog: contraste do CTA em teste separado após avaliar CRO-001; nenhum material extra necessário. Futuras provas sociais somente reais/verificáveis/autorizadas/anonimizadas. Sem alteração deHTML/CSS/scripts: QA visual mobile não repetida hoje; equivalência ao tratamento já validado390×844/360×800 reconfirmada após normalizar apenasURLs. Não equivale a Safari real ou performance de campo.
 
 **Escopo:** somente CRO_EXPERIMENTS.md no mesmo PR#16; sem alteração de Meta, landings, rastreamento ou convites pelo agente, sem merge dePR/auto-merge/deploy ou mensagens externas. Artefatos atuais sem tokens em `/home/ibombonatohermes/work/hermes-scratch/cro-icb-2026-10-15/`: analysis.json, série diáriaGraph29/set–14/out, respostasMCP, audits7d/pós, validaçãoPages/live, revisão dos snapshots, report.md e remote-verification.json. Helpers reaproveitados como código; dados atuais reconsultados, nunca substituídos por snapshots antigos.
+
+## Acompanhamento diário — 2026-10-16
+
+**Execução:** 09h America/Sao_Paulo; métricas consolidadas em 2026-10-16T12:02:34Z. Histórico integral da main atual e do PR #16, PRs abertos/fechados e commits consultados antes do diagnóstico. Worktree nova a partir de origin/main `c18637f`, incorporando o histórico pendente; outras worktrees preservadas. Único PR aberto: [#16](https://github.com/ibombonato/promos-da-lidi/pull/16), documental, reutilizado sem novo experimento.
+
+**Publicação:** build inicial do CRO-001 `1a377ea858b18189d7b40b1fd63990376e777712`, conclusão 2026-10-13T23:42:37Z (20:42:37 São Paulo), reconfirmado pela API Pages. [PR #18](https://github.com/ibombonato/promos-da-lidi/pull/18) mesclado pelo humano em 2026-10-16T01:59:53Z: somente href e WHATSAPP_GROUP_URL em index3.html. Pages atual `c18637ff3daf6cad3e97d7738e9fac10323a7e86`, built em 2026-10-16T02:00:30Z (15/out 23:00:30 São Paulo). HTML de ambas as páginas público HTTP200 e byte a byte igual ao commit às 12:01:33Z. Normalizando somente convites, experimental inteira idêntica ao tratamento inicial; controle intacto. Headline, CSS, CTA, Pixel/evento/handler preservados, href/constante coerentes, Lead pré-redirecionamento. **Manutenção operacional, não novo experimento nem reinício do baseline.** Build não é instante exato de exposição por visitante.
+
+### Métricas atuais — dias completos
+
+MCP oficial ad hoc inicializado, protocolo negociado **2025-11-25** reutilizado; schemas/conta consultável/campos confirmados, somente ferramentas de leitura. Quatro janelas e baseline conciliados exatamente em investimento/impressões/cliques/LPV/Leads com série diária Graph GET; aliases selecionados, não somados; atribuição unificada preservada. Paginação/continuações inspecionadas. Breakdowns de baseline/7d/pós conciliados em contagens; gasto por dispositivo do controle pós soma R$373,920001 versus R$373,92, resíduo −R$0,000001, inferior a um centavo, sem divergência nos totais principais. Excluir 16/out parcial.
+
+| Dias | Período inclusivo — São Paulo | Landing | Investimento | Impressões | Cliques no link | LPV | Leads proxy | CVR | CPL proxy |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | 2026-10-15 a 2026-10-15 | Experimental | R$ 92,07 | 21223 | 500 | 418 | 173 | 41,39% | R$ 0,53 |
+| 1 | 2026-10-15 a 2026-10-15 | Controle | R$ 182,13 | 45340 | 1078 | 921 | 375 | 40,72% | R$ 0,49 |
+| 3 | 2026-10-13 a 2026-10-15 | Experimental | R$ 280,47 | 66459 | 1579 | 1307 | 525 | 40,17% | R$ 0,53 |
+| 3 | 2026-10-13 a 2026-10-15 | Controle | R$ 557,11 | 148385 | 3416 | 2875 | 1120 | 38,96% | R$ 0,50 |
+| 7 | 2026-10-09 a 2026-10-15 | Experimental | R$ 699,28 | 158730 | 3703 | 3100 | 1172 | 37,81% | R$ 0,60 |
+| 7 | 2026-10-09 a 2026-10-15 | Controle | R$ 1351,67 | 356337 | 7984 | 6724 | 2562 | 38,10% | R$ 0,53 |
+| 14 | 2026-10-02 a 2026-10-15 | Experimental | R$ 1238,87 | 291836 | 6974 | 5866 | 2186 | 37,27% | R$ 0,57 |
+| 14 | 2026-10-02 a 2026-10-15 | Controle | R$ 1916,46 | 501178 | 11378 | 9657 | 3634 | 37,63% | R$ 0,53 |
+
+Janelas3/7/14d misturam tratamentos; diagnóstico geral, não efeito puro do headline. Lead é **proxy de clique antes da navegação, não entrada confirmada no grupo**. Baseline histórico informado36% sem denominador: referência descritiva, não teste estatístico.
+
+### CRO-001 — dois dias completos posteriores (14–15/out)
+
+**Status Em avaliação; resultado ainda inconclusivo.** Baseline congelado29/set–12/out reconsultado sem revisão dos totais: experimental1992/5387=36,98%, controle2901/7672=37,81%; snapshot original preservado. 13/out parcialmente exposto continua excluído.
+
+| Métrica posterior | Experimental | Controle |
+|---|---:|---:|
+| Investimento | R$ 188,44 | R$ 373,92 |
+| Impressões | 43800 | 95066 |
+| Cliques no link | 1035 | 2231 |
+| LPV | 848 | 1885 |
+| Leads proxy | 349 | 755 |
+| CVR | 41,16% | 40,05% |
+| CPL proxy | R$ 0,54 | R$ 0,50 |
+
+- Experimental pós−pré **+4,18p.p./+11,30% relativo**, IC95% normal nominal **+0,62 a +7,73p.p.**; CVR pós Wilson95%37,89%–44,50%. O intervalo nominal passou a excluir zero, mas **não é ajustado para leituras sequenciais** nem justifica vitória/parada precoce. Controle também melhorou **+2,24p.p./+5,92%**, IC95% diferença−0,22 a+4,70p.p.; CVR pós Wilson37,86%–42,28%.
+- Diferença entre mudanças absolutas **+1,94p.p.**, IC95% aproximado **−2,39 a+6,26p.p.**, inclui zero. Entre evoluções relativas **+5,37 pontos percentuais de variação relativa**. Diferença experimental−controle no pós **+1,10p.p.**, IC95%−2,88 a+5,09p.p. Descrições observacionais; quatro proporções tratadas como independentes são aproximação, não causalidade randomizada nem coorte deduplicada.
+- Somente **848 LPV posteriores =20,54%** da referência planejada4128, com cobertura de quarta/quinta. Há sinal favorável antes/depois, mas faltam volume/cobertura/consistência e separação de fatores externos; preservar avaliação, sem tratamento simultâneo.
+
+### Tráfego, evolução e revisões
+
+- Campanhas/conjuntos ACTIVE; dois anúncios experimentais ativos (`120251541120490505`, produtos atualizados; `120250848857170505`, texto4em1), antigo pausado; controle `120250926403940505` ativo apesar do nome. Campos atuais dos anúncios ativos/conjuntos, copy completa, destinos e atribuição idênticos à consulta anterior. Única diferença na resposta do anúncio antigo pausado foi URL assinada de miniatura, não mudança de criativo/entrega. Pixel1504398471438133, atribuição clique7d/visualização1d/vídeo-engajado1d preservados.
+- **Mix não constante:** participação do anúncio produtos atualizados nos LPV experimentais **81,77% no pré →90,68% no pós**. CVR desse anúncio37,41%→41,87%; texto4em135,03%→34,18%, este com apenas79LPV posteriores. Não atribuir ao headline toda a mudança agregada nem declarar vencedor entre criativos.
+- Android experimental39,77% (1359/3417)→41,56% (219/527); iPhone32,11% (632/1968)→40,50% (130/321). Controle Android40,47%→42,16%, iPhone33,91%→37,16%. Share de LPV Android exp.63,43%→62,15%, controle59,38%→56,87%. Não diagnosticar defeito Safari por esses dados. Stories exp. share88,58%→88,56%, CVR35,85%→41,41%; controle88,56%→87,90%, CVR36,87%→39,05%. Feed/Reels pós experimentais74/23LPV: cautela com amostras pequenas.
+- LPV/clique15/out **83,60%/85,44%**, pós **81,93%/84,49%**, 7d **83,72%/84,22%**. Recuperação diária não prova melhoria de carregamento; sem Web Vitals de campo.
+- Semanas não sobrepostas2–8/out→9–15/out: exp.1014/2766=36,66%→1172/3100=37,81% (**+1,15p.p./+3,13%**); controle1072/2933=36,55%→2562/6724=38,10% (**+1,55p.p./+4,25%**). Diferença das evoluções relativas−1,12 pontos percentuais, das mudanças absolutas−0,41p.p. Diferença7d exp.−controle−0,30p.p., IC95%−2,36 a+1,77p.p. Janelas mistas, sem atribuição causal ao headline.
+- Revisão versus snapshot15/out: somente controle14/out investimentoR$191,78→191,79 e impressões49723→49726; LPV964/Leads380 inalterados. Preservados os registros anteriores; baseline sem revisão.
+
+### Decisão, gate e próximo passo
+
+**Manter CRO-001 Em avaliação; nenhuma alteração da landing.** Próxima leitura:16/out completo; checkpoint exploratório14–16/out em17/out, sem critério de parada por primeiro intervalo favorável. Gate faltante é volume/cobertura/consistência com incerteza e mix, não publicação ou nova janela após convite. Plano mantido: MDE+3p.p., alfa bilateral5%, poder80%, referência aproximada4128LPV por período, não garantia nem critério único. Restam **3280LPV**; taxas recentes442,86LPV/dia(7d) e419,00(14d) projetam mais8dias completos, consulta de volume estimada **24/out**, condicionada ao tráfego. A projeção anterior24–25/out foi atualizada pelo volume observado, não por resultado favorável. Avaliar explicitamente antes de outro tratamento; sem suporte suficiente, inconclusivo.
+
+Backlog preservado: contraste do CTA em teste separado após avaliar CRO-001; nenhum material extra necessário. Depoimentos/prints/ofertas/provas sociais somente reais, verificáveis, autorizados/anonimizados. Sem nova implementação, não foi repetida QA visual mobile; HTML normalizado reconfirmado equivalente ao tratamento já validado390×844/360×800. Não é novo teste Safari nem performance de campo.
+
+**Escopo:** exclusivamente CRO_EXPERIMENTS.md no mesmo PR#16; nenhum merge dePR, auto-merge, deploy, alteraçãoMeta/Pixel/eventos/destinos/controle/experimental ou mensagem externa pelo agente. Artefatos atuais: `/home/ibombonatohermes/work/hermes-scratch/cro-icb-2026-10-16/` (report.md, analysis.json, série diáriaGraph29/set–15/out, respostasMCP, auditsbaseline/7d/pós, validaçãoPages/live, history-validation.json, additional-validation.json, remote-verification.json). Helpers reutilizados apenas como código; nenhum snapshot anterior substituiu dados atuais.
