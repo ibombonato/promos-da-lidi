@@ -745,3 +745,9 @@ Sensibilidade7dias16–22/out:1676/4380=38,26% e2522/6568=38,40%. Primeiro dia c
 O pedido de materiais será comunicado ao responsável nesta entrega; não é requisito para publicar/avaliar o contraste. Enquanto aguardaPR/dados, avançar pesquisa/copy/plano dessas hipóteses e registrar uma entrega diária útil, não apenas repetir o backlog.
 
 **Artefatos locais:** `/home/ibombonatohermes/work/hermes-scratch/cro-icb-2026-10-23/`:rawsMCP/Graph,analysis.json,activities.json,activity-ad-resolution.json,live-validation.json,hypothesis.md,test_scope.py,mobile-qa.json,extra-browser-qa.json,daily-prompt.txt. Evidência de restauração operacional/Telegram será registrada separadamente quando efetivamente confirmada.
+
+### Auditoria operacional complementar — 2026-10-23
+
+Verificação independente do ledger `cron/executions.db` do job714c96de5c45 e dos recibos da ponte: **9 execuções concluídas de14a22/out, com39 mensagens aceitas pelo Telegram** para o destino autorizado. Em22/out os recibos são18710/18711; aceite do transporte não comprova leitura. Houve acompanhamento, mas faltou avanço de hipóteses/insumos; não apresentar a falha atual como uma semana sem executar.
+
+A execução23/out `87a40da3cc1046dbac97f92e2ad9af8c` falhou em12:00:15Z. A ponte marcou `skipped_failed` às12:05:13Z e não emitiu alerta de falha; o job da ponte emsi permanecia saudável. Portanto são dois pontos distintos: recuperar autoridade de execução do perfil e eliminar silêncio de falhas na entrega. O código atual da ponte já mostra um ramo opcional `failure_notices`, mas ativação, deduplicação e envio real ainda não foram verificados nesta auditoria; não declarar recuperação apenas pela existência desse código. Correção com operador @hermes permanece pendente de confirmação. Não copiar tokens nem modificar outros perfis.
