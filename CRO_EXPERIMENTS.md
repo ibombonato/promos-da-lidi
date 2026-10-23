@@ -1,5 +1,7 @@
 # Histórico de experimentos CRO — ICB
 
+> **Atualização vigente — 2026-10-23:** **CRO-002 Em PR**, teste isolado de contraste do CTA no PR#16. CRO-001 continua **Inconclusivo**, avaliação encerrada em22/out; não aguardar mais seu checkpoint. Nenhum merge/deploy realizado. Execução automática23/out falhou no gateway; análise real e implementação realizadas nesta sessão. Prompt diário corrigido; recuperação operacional/Telegram pendente de comprovação. Notas datadas abaixo são histórico preservado.
+
 > **Atualização de 2026-10-22:** **CRO-001 encerrado como Inconclusivo** no checkpoint planejado, com 4346 LPV posteriores e cobertura semanal completa. Diferença entre mudanças +0,51 p.p., IC95% aproximado −1,97 a +2,99 p.p.; não foi comprovado benefício ou prejuízo. Manter a headline publicada, sem reversão ou novo tratamento nesta execução. Dois anúncios externos iniciaram entrega no fim de 21/out; acompanhar sua primeira jornada completa separadamente antes de preparar o próximo baseline. Publicação inicial confirmada em `1a377ea858b18189d7b40b1fd63990376e777712`, build concluído em 2026-10-13T23:42:37Z. Rotações operacionais não reiniciam avaliação. Registros e snapshots anteriores foram preservados; decisões antigas não são orientação vigente.
 
 ## Escopo e salvaguardas
@@ -634,3 +636,112 @@ No18/out, contra a média diária14–16/out: LPV experimental+74,56%, investime
 **Próximo passo/gate concreto:** CRO-001 encerrado; não aguardar mais dados para tentar torná-lo vencedor. Monitorar22/outcompleto na próximaleitura,primeirodiaintegral dosquatroanúncios,com distribuição poranúncio/CVR/CPL e revisão daestabilidade da referência paraopróximoteste. Não implementarcontrasteCTAhojeemcima dolançamentoexterno;umaprincipalvariávelporvez. BacklogcontrasteCTA permanecepriorizado,sem materialextra,semIDdeexperimento atribuídosemimplementação. Nova preparação deve pré-registrar baseline compatível com anovacomposição e checkpoints próprios; não impor espera arbitrária ou reutilizar4128como limiaruniversal. Materiais reais/autorizados/verificáveis sóparaeventuais hipótesesdeprovasocial.
 
 **Escopo:** apenasCRO_EXPERIMENTS.mdnomesmoPR#16;semalteraçãoMeta/landings/Pixel/eventos/UTMs/destinos,mergeremoto/auto-merge/deploy,mensagensexternasouagendamentos. Evidências atuais em `/home/ibombonatohermes/work/hermes-scratch/cro-icb-2026-10-22/`:report.md,analysis.json,daily-graph.json,respostasMCP,auditsbaseline/7d/pós/orçamento,campaign-config.json,graph-activities-expanded.json,ad-daily-21.json,live-validation.json,history-validation.json,additional-validation.json,cta-validation.json e remote-verification.json. Helpers reutilizados somente como código; nenhuma métrica substituída por snapshot antigo.
+
+## Acompanhamento e retomada proativa — 2026-10-23
+
+**Decisão: implementar CRO-002 em PR, não aguardar novamente CRO-001.** Histórico integral da main e do PR#16 lido; PRs abertos/fechados e publicação consultados. CRO-001 permanece **Inconclusivo**, encerrado em22/out; endpoint14–21/out reconsultado com os mesmos LPV/Leads/gasto:38,56% versus38,89%; diferença entre mudanças+0,51p.p.,IC95%−1,97a+2,99. Nenhum novo dia foi acrescentado oportunisticamente a esse desfecho.
+
+**Diagnóstico de atuação:** houve acompanhamento diário documentado de14a22/out, mas preparação/solicitação de materiais não evoluiu de forma suficiente enquanto o tratamento era avaliado. Não confundir monitoramento com melhoria comprovada nem usá-lo para perpetuar espera após encerrar teste. A cobrança do responsável motivou auditoria operacional e uma entrega concreta nesta execução.
+
+**Falha operacional atual:** disparo automático23/out12:00:14Z falhou antes da análise com `GatewayUnavailableError/profile_parked`, conflito de credencial Telegram entre default/analyst. Scheduler running/enabled não demonstra execução saudável. Análise abaixo executada efetivamente nesta sessão manual; não alegar execução automática hoje. Prompt do próprio job714c96de5c45 atualizado e relido exatamente: entrega concreta diária, backlog ativo, pedidos de material, gates específicos, encerramento de testes e alerta de bloqueios. Horário09hSãoPaulo e transporte local preservados. Recuperação do gateway/ponte Telegram encaminhada ao operador @hermes, **ainda não comprovada**; outros perfis/serviços/credenciais não foram alterados. Próxima execução agendada24/out12:00Z, não garantia de conclusão.
+
+### Métricas atuais — snapshot23/out15:28Z, dias completos de São Paulo
+
+MCP oficial read-only inicializado, protocolo negociado reutilizado, conta/campos/schemas confirmados; janelas conciliadas exatamente com Graph GET diário29/set–22/out em gasto,impressões,cliques,LPV,Leads. Aliases selecionados, não somados; paginação/continuações verificadas. Hoje23/out excluído. **Lead é proxy de clique antes de navegar, não entrada confirmada. Baseline histórico36% sem denominador é descritivo.**
+
+| Dias | Período inclusivo | Landing | Investimento | Impressões | Cliques link | LPV | Leads proxy | CVR | CPL proxy |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | 2026-10-22–2026-10-22 | Experimental | R$ 247,29 | 48563 | 1011 | 882 | 349 | 39,57% | R$ 0,71 |
+| 1 | 2026-10-22–2026-10-22 | Controle | R$ 186,72 | 38587 | 958 | 826 | 311 | 37,65% | R$ 0,60 |
+| 3 | 2026-10-20–2026-10-22 | Experimental | R$ 539,23 | 110873 | 2453 | 2086 | 777 | 37,25% | R$ 0,69 |
+| 3 | 2026-10-20–2026-10-22 | Controle | R$ 552,66 | 128632 | 2979 | 2538 | 957 | 37,71% | R$ 0,58 |
+| 7 | 2026-10-16–2026-10-22 | Experimental | R$ 1055,44 | 229676 | 5233 | 4380 | 1676 | 38,26% | R$ 0,63 |
+| 7 | 2026-10-16–2026-10-22 | Controle | R$ 1359,24 | 327553 | 7683 | 6568 | 2522 | 38,40% | R$ 0,54 |
+| 14 | 2026-10-09–2026-10-22 | Experimental | R$ 1754,72 | 388406 | 8936 | 7480 | 2848 | 38,07% | R$ 0,62 |
+| 14 | 2026-10-09–2026-10-22 | Controle | R$ 2710,93 | 683894 | 15667 | 13292 | 5084 | 38,25% | R$ 0,53 |
+
+**Evolução semanal9–15/out→16–22/out:** experimental37,81→38,26% (+0,46p.p./+1,21%relativo),controle38,10→38,40% (+0,30p.p./+0,78%); diferença entre evoluções relativas+0,44pontos percentuais, descritiva. Não atribuir ao CRO-002 não publicado.
+
+**Mix e fatores externos:** quatro anúncios experimentais ativos, um antigo pausado; um controle ativo. Em22/out os dois novos anúncios anteriormente identificados somaram15LPV/9Leads/R$4,07; participação1,70% dos882LPV. Principal anúncio756LPV/297Leads; texto 4 em 1: 111 LPV/43 Leads. Contagens/gasto por anúncio e breakdowns conciliados ao total. Isso não caracteriza teste50/50 de criativos. Android experimental230/561=41,00%,iPhone119/320=37,19%, sem evidência de defeitoSafari. Orçamento experimental segueR$150/dia; gasto22/outR$247,29 não foi tratado como prova de edição do orçamento. Controle teve mudança externaR$200→170/dia em22/out09:05:28SãoPaulo, reconfirmada por atividades/readback;22/out é transição do controle. Comparações entre campanhas não isolam a landing. Três outros IDs em atividades de primeira entrega não retornaram objetos consultáveis (Graph100/subcode33); não inventar status ou criativo, guardar limitação. Ad insights conciliados representam os IDs com entrega reportada na janela.
+
+**Publicação atual:** main48a3628 (PR#22 humano, somente convite experimental), Pagesbuilt23/out14:47:30Z; HTMLpúblicoHTTP200 de ambas as páginas conferiu byte a byte com main. Convite atual preservado nohref e constante; manutenção operacional não reiniciaCRO-001. Nenhum merge/deploy pelo agente.
+
+## CRO-002 — Aumentar a legibilidade do botão de entrada
+
+**Data de criação:** 2026-10-23
+**Status:** Em PR
+**Data de publicação:** Pendente — não publicado por esta execução.
+**Commit de publicação:** Pendente.
+**Pull Request:** [#16 — CRO-002](https://github.com/ibombonato/promos-da-lidi/pull/16), convertido do acompanhamento documental para evitar PR paralelo/duplicado; todo histórico preservado.
+**Branch de trabalho isolada:** `cro/CRO-002-cta-contrast-2026-10-23`, com ancestralidade do histórico pendente e main atual; envio fast-forward à branch já vinculada ao PR#16.
+**Screenshot mobile:** [390×844](cro/screenshots/CRO-002-mobile.png), [360×800](cro/screenshots/CRO-002-mobile-360x800.png) e [antes390×844](cro/screenshots/CRO-002-before-390x844.png).
+
+### Problema, evidência e hipótese pré-registrada
+
+O texto branco do botão atual sobre verde tem contraste **2,38:1–3,15:1**, abaixo da referênciaWCAG1.4.3de4,5:1 para texto normal; fonte real16,38pxem390e15,12pxem360. **Escurecer somente o fundo do mesmo CTA para facilitar sua leitura pode aumentar a propensão ao clique por LPV.** Evidência objetiva de acessibilidade não demonstra abandono causado pela cor nem prevê ganho de conversão. Não alterar copy, posição, dimensões ou headline ao mesmo tempo. ICE qualitativo: impacto6,confiança9 na falha técnica(não no ganho),facilidade9.
+
+### Alteração realizada
+
+Exclusivamente duas variáveisCSS usadas no gradiente `.cta` em `index3.html`:
+
+| Variável | Antes | Depois | Contraste com branco depois |
+|---|---|---|---|
+| `--green-2` | `#0bc247` | `#087f2c` | 5,14:1 |
+| `--green` | `#09a83a` | `#086b29` | 6,68:1 |
+
+Cor verde e texto branco mantidos. Todo o restante do HTML é idêntico àmain: copy, prova social existente(não validada), geometria, foco, hover, recursos, links/convite/UTMs, Pixel e scripts/eventos/delay150ms. Controle idêntico byte a byte. Nenhuma dependência nova. Uma única variável principal: contraste do fundo do CTA.
+
+### Métricas anteriores — snapshot de planejamento, não baseline congelado
+
+Período **9–22/out/2026**,14dias completos, fusoSãoPaulo; recalcular pela regra pré-especificada se a publicação ocorrer depois. Essa janela inclui headline anterior em parte, mudança de orçamento e novos anúncios; não é uma coorte homogênea, e essa limitação deve acompanhar o resultado.
+
+| Métrica | Experimental | Controle |
+|---|---|---|
+| LPV | 7480 | 13292 |
+| Leads proxy | 2848 | 5084 |
+| CVR | 38,07% | 38,25% |
+| Investimento | R$1754,72 | R$2710,93 |
+| CPL proxy | R$0,62 | R$0,53 |
+
+Sensibilidade7dias16–22/out:1676/4380=38,26% e2522/6568=38,40%. Primeiro dia completo dos dois anúncios novos22/out tem apenas15LPV; não tratá-lo isoladamente como baseline confiável ou motivo para adiar indefinidamente uma hipótese reversível. Preparação emPR não altera a exposição pública. Registrar essas fases/mix e mudanças futuras, sem atribuir efeitos dos anúncios/orçamentos ao CTA.
+
+### Após publicação
+
+| Métrica | Experimental | Controle |
+|---|---|---|
+| LPV | Pendente | Pendente |
+| Leads proxy | Pendente | Pendente |
+| CVR | Pendente | Pendente |
+| CPL proxy | Pendente | Pendente |
+
+**Impacto absoluto/relativo:** pendente; nenhuma melhoria medida ou alegada.
+**Conclusão:** hipótese implementada e validada tecnicamente; resultado de conversão depende de aprovação/publicação e dados posteriores.
+**Aprendizados:** o CTA já estava visível; a mudança corrigiu apenas contraste em ambienteQA, sem mover o botão. Não repetir headline inconclusiva como sucesso.
+
+### QA executada antes de finalizar o PR
+
+- TesteRED falhou na versão anterior, depoisGREEN: guard de duas substituições exatas; scripts, links, conteúdo posterior aoCSS e controle preservados. `git diff --check` limpo.
+- NodeVM do script real: **11 verificações aprovadas**, tracking presente/ausente/com erro,delay150ms,modificadores,central/direito/eventocancelado; sem rede nem eventoMeta/joinWhatsApp.
+- Chromiumreal:390×844e360×800 capturados e **inspecionados visualmente**. CTA inteiro nas duas primeiras dobras, texto/ícone em duas linhas sem corte; foto e seis benefícios carregados; semoverflow horizontal. Geometria antes/depois idêntica:390x844y503,75–565,75,346×62px;360x800y500,14–560,14,316×60px. Sem nova promessa de oferta/prova social.
+- Viewports extras320×740/1280×900,scroll/foco e ativaçãoEnter aprovados; clique físico por coordenada validou uma chamada localLead e timer150ms, URL mantida local. Fallbackhref semJavaScript preservado. DomíniosMeta/WhatsApp bloqueados antes de carregar; timers interceptados sónoQA, nunca noPR. Sem exceçõesJS observadas; isso não é Safari real nem WebVitals de campo.
+
+![CRO-002 — mobile390×844](cro/screenshots/CRO-002-mobile.png)
+
+### Plano de avaliação pré-definido
+
+1. Confirmar SHA publicado e HTML público após aprovação humana; PR/merge sozinho não significa publicação. Congelar **14dias completos imediatamente anteriores ao dia de publicação**, para ambas as campanhas; excluir o dia parcialmente exposto. Guardar revisões de atribuição sem apagar snapshots.
+2. Métrica principal estávelLead/LPV;CPLsecundária. Calcular CVRponderada, diferenças absolutas/relativas antes/depois e evolução do controle;IC95% aproximados e sensibilidades7dias, fases de orçamento, anúncios/dispositivos/posicionamentos. Não selecionar janela mais favorável retrospectivamente.
+3. Planejamento atualp0=38,07%,MDE+3p.p.,alfa5%bilateral,poder80%: **4170LPV por período**, fórmula de duas proporções independentes. Revalidar uma vez ao congelar o baseline, antes de olhar o desfecho. Não reutilizar4128deCRO-001 como limiar universal. Dados atribuídos/dependentes e tráfego não randomizado limitam poder/causalidade.
+4. Checkpoint principal quando atingir a referência de volume **e** cobertura dos dias da semana, examinando consistência/mix. Ritmo7dias atual625,71LPV/dia projeta aproximadamente7dias completos após publicação; não é prazo garantido ou único critério. Monitorar diariamente a integridade, sem declarar vitória pelo primeiro intervalo/p-valor favorável. Não prolongar só para atingir significância; encerrar Inconclusivo se a evidência continuar insuficiente no checkpoint/condições avaliáveis.
+5. Se houver mudança externa forte durante a avaliação, preservar endpoint/plano e documentar limitações/sensibilidades; não corrigir Meta ou controlar orçamento por conta própria. Regressão funcional pedePR de correção/reversão, nunca publicação automática.
+
+### Backlog ativo e solicitação de material — não implementar junto ao CRO-002
+
+| Hipótese futura | Evidência atual / próximo trabalho | ICE qualitativo | Dependência |
+|---|---|---|---|
+| Demonstrar o que chega no grupo com exemplo real | Hoje há promessa genérica e benefícios, mas não exemplo concreto de oferta; testar um exemplo verdadeiro pode reduzir incerteza sobre valor. Não está comprovado que esse seja o motivo de abandono. | I7/C5/E6 | Solicitar3ofertas reais recentes, com data,loja,produto,preço/cupom verificáveis,e1print do conteúdo com nomes/telefones ocultos; validar antes de usar. |
+| Confiança verdadeira sem prova social não comprovada | Número16.000/estrelas existentes não foram comprovados. Verificar a alegação e preparar tratamento verdadeiro separado, sem inflar participantes nem criar avaliações. | I6/C6/E8 | Solicitar comprovação do número e autorização de uso; se não houver, propor alternativa sem alegação numérica emPR separado após o teste atual. |
+
+O pedido de materiais será comunicado ao responsável nesta entrega; não é requisito para publicar/avaliar o contraste. Enquanto aguardaPR/dados, avançar pesquisa/copy/plano dessas hipóteses e registrar uma entrega diária útil, não apenas repetir o backlog.
+
+**Artefatos locais:** `/home/ibombonatohermes/work/hermes-scratch/cro-icb-2026-10-23/`:rawsMCP/Graph,analysis.json,activities.json,activity-ad-resolution.json,live-validation.json,hypothesis.md,test_scope.py,mobile-qa.json,extra-browser-qa.json,daily-prompt.txt. Evidência de restauração operacional/Telegram será registrada separadamente quando efetivamente confirmada.
