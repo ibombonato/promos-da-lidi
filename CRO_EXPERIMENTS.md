@@ -751,3 +751,23 @@ O pedido de materiais será comunicado ao responsável nesta entrega; não é re
 Verificação independente do ledger `cron/executions.db` do job714c96de5c45 e dos recibos da ponte: **9 execuções concluídas de14a22/out, com39 mensagens aceitas pelo Telegram** para o destino autorizado. Em22/out os recibos são18710/18711; aceite do transporte não comprova leitura. Houve acompanhamento, mas faltou avanço de hipóteses/insumos; não apresentar a falha atual como uma semana sem executar.
 
 A execução23/out `87a40da3cc1046dbac97f92e2ad9af8c` falhou em12:00:15Z. A ponte marcou `skipped_failed` às12:05:13Z e não emitiu alerta de falha; o job da ponte emsi permanecia saudável. Portanto são dois pontos distintos: recuperar autoridade de execução do perfil e eliminar silêncio de falhas na entrega. O código atual da ponte já mostra um ramo opcional `failure_notices`, mas ativação, deduplicação e envio real ainda não foram verificados nesta auditoria; não declarar recuperação apenas pela existência desse código. Correção com operador @hermes permanece pendente de confirmação. Não copiar tokens nem modificar outros perfis.
+
+## Pesquisa competitiva e roadmap estrutural — 2026-10-23
+
+**Entrega:** [pesquisa completa e plano](cro/research/2026-10-23-competitive-roadmap.md), com cinco concorrentes, inspeção mobile390×844, fontes verificadas, hipóteses, ICE, dependências e plano de avaliação. Benchmark não fornece CVR dos concorrentes nem prova de causalidade; números/descontos/urgência deles não foram validados ou copiados.
+
+**Achados:** ModaPromos mostra mensagens de ofertas com produto/preço/cupom/loja; Só Perfumes e AchadinhoVP tratam objeções perto do CTA; Ninja explica funcionamento e relevância por assunto; Curcio é uma referência adjacente de loja. A ICB já tem CTA na primeira dobra, mas não mostra concretamente o conteúdo recebido. Vídeo do AchadinhoVP não reproduziu na sessão: não foi tratado como exemplo de sucesso ou falha universal.
+
+| Prioridade | Backlog proposto | Gate |
+|---|---|---|
+| 1 | BL-01: módulo de exemplos reais do que chega no WhatsApp | Ofertas próprias verificáveis, autorização e anonimização |
+| 2 | BL-02: reestruturar arquitetura da primeira dobra preservando headline/copy/CTA | Sem material adicional; elegível após CRO-002 |
+| 3 | BL-03: contrato de funcionamento e objeções | Confirmar regras reais do grupo |
+| 4 | BL-04: demonstrar método/autoria da curadoria | Processo e material real autorizados; um formato por teste |
+| Condicional | BL-05: CTA após leitura em versão mais longa | Só se CTA principal realmente sair da tela |
+
+**Decisão:** não implementar nenhum novo tratamento agora. CRO-002 permanece o único experimento emPR; headlineCRO-001 mantida. Priorizar BL-01 após avaliação; se o material estiver pendente, BL-02 evita espera improdutiva. IDsBL são backlog, não novos IDsCRO. Os pedidos de material anteriores continuam válidos, sem nova cobrança repetida.
+
+**Medição futura:** Lead/LPV inalterado, CPL secundário; baseline somente da versão imediatamente anterior, volume/cobertura/mix e intervalos pré-registrados. Referência de planejamento no snapshot7d já coletado:38,26%,MDE3p.p.→4177LPV/período;MDE5p.p.→1516, sem previsão de lift. Regra proposta para testes futuros não altera silenciosamente o plano já registrado doCRO-002. Nenhuma nova coletaMeta ou resultado de conversão nesta pesquisa.
+
+**Operação reconfirmada antes da pesquisa:** gateway ativo atendendo14perfis e ponteTelegramOK em23/out16:35Z; primeiro ciclo completo de análise+envio após correção ainda pendente. Esta pesquisa não reiniciou serviços nem alterou agendamentos.
