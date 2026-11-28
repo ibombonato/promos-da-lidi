@@ -1,0 +1,18 @@
+# Entrega 22/nov — recuperação diária não é lift; pacote para decisão humana
+
+## Evidência nova, conciliada
+Em20→21/nov, sem publicação nova do contraste, experimental161/474=33,97%→233/574=40,59%, mudança6,63p.p., IC95% nominal[0,77;12,48]. Dois dias civis completos posteriores às pausas19/nov00:08SP; não selecionar os IDs atualmente ativos para apagar o passado. Todas as contribuições retornadas dos dois dias foram reconciliadas, cobertura100%LPV/Lead. Decomposição simétrica por anúncio: 0,54p.p. composição + 6,08p.p. dentro dos anúncios. Termo dentro não isola causa nem demonstra superioridade da copy. Campanhas distintas, eventos atribuídos/dependentes e leitura diária limitam os intervalos.
+
+Nos7dias15–21/nov, experimental35,73% contra38,96%controle, diferença-3,22p.p.,IC95%[-5,41;-1,04]. Mesmo com CVR inferior, CPLexperimentalR$0,73 é-5,32% menor quecontroleR$0,77. Identidade CPL=CPM/(1000×CTRlink×LPV/clique×Lead/LPV) verificada sem arredondamento. CPM6,08/7,36,CTR2,84%/2,93%,LPV/clique82,40%/84,09%. A vantagem de custo não demonstra landing melhor; log-contribuições preservadas no artefato local. Nenhuma decomposição é ajuste causal.
+
+## Próxima hipótese BL-02 — refinamento específico, sem implementação
+- Problema: arquitetura mobile dedica248px ao hero antes da oferta; protótipo anterior antecipou CTA129px, mas confiança/foto menor não testadas. Evidência de geometria, não de abandono nem de CVR.
+- Mudança objetiva futura: apenas compactar módulo mobile conforme especificação existente; preservar headline, copy, contraste que estiver aprovado, CTA, fontes/links/Pixel/handler. Não somar nova cor, rótulo ou prova social.
+- ICE permaneceI8/C5/E8, sem aumentar confiança pelo rebote diário ou CPL favorável.
+- Novo caso de aceitação do plano: o relatório de avaliação deve mostrar lado a lado CVR e cadeiaCPL quando seus sinais divergirem, como ocorre15–21/nov. A decisão primária permanece Lead/LPV; custo menor não promove resultado aVencedor. Manter endpoint agregado com todos IDs históricos; padronização poranúncio é sensibilidade secundária com cobertura, nunca substituição pelos dias/ads que recuperaram.
+- Teste planejado: sóapós disposição/avaliação explícita deCRO-002, pré-registrar baseline da versão imediatamente anterior, MDE/checkpoint próprios, cobertura semanal, IC95% e fases externas; QA390×844/360×800,textoampliado/desktopbaixo e script semrede. Não reutilizar4170automaticamente paraBL-02. Provas reais opcionais não são gate do fallback.
+
+## Bloqueio de publicação: decisão, não amostra
+CRO-002 preparado em23/out, há30dias civis; permaneceEmPR#16. AutenticaçãoHTTP200/identidadeibombonato/permissãopush confirmadas, merge-tree da mainbbdc31ad6da3cfd82861c52117cfd5e6363efc13 com headd904f9b77cd1d1fa27a7c8733e801693d711f1a0 semconflito e resultadoexatamente duascoresCSS. Isso não émerge/publicação/autorizaçãoparaexecutá-los. Responsávelibombonato: decidir aceitar o teste isolado de contraste ou rejeitá-lo explicitamente; nenhum segundo experimento será aberto enquanto essePR estiverpendente. Seaceito/publicado, confirmarPagesSHA+HTML,congelar14diasanteriores/excluirdiamixto/revalidaruma vez4170conformeplano. Não aguardar maisCRO-001, encerradoInconclusivo.
+
+Produçãobbdc31ad6da3cfd82861c52117cfd5e6363efc13,deployment7967349596success2026-11-21T18:12:38Z,Actions44934185314success; ambosHTMLsbyteabyteiguais, coresantigas. Fonte do candidato éidênticaàQAvisual20/nov; guard deescopo/NodeVMreexecutados, nenhuma captura novaalegada. Controle humano#63 sórotacionouconvite;#64operacionalpendente,nãoincorporado. NenhumMetaeditado/controlealterado/merge/auto-merge/deploy, Leadreal ouentradaWhatsApp.
